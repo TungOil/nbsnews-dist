@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBSNews - Rzetelne Wiadomości</title>
+
+    <link rel="stylesheet" href="assets/style.css">
+    <script>
+      (function(){
+        try {
+          var saved = localStorage.getItem('theme') || 'auto';
+          var mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+          var dark = (saved === 'dark') || (saved === 'auto' && mql && mql.matches);
+          document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        } catch(_) {}
+      })();
+    </script>
+    <meta name="description" content="Rzetelne i neutralne wiadomości bez szumu informacyjnego">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>NBSNews</h1>
+            <p class="tagline">Rzetelne wiadomości bez szumu</p>
+            <nav style="display:flex; justify-content: space-between; align-items: center; gap: 1rem;">
+                <ul>
+                    <li><a href="#latest">Najnowsze</a></li>
+                    <li><a href="#politics">Polityka</a></li>
+                    <li><a href="#economy">Gospodarka</a></li>
+                    <li><a href="#technology">Technologia</a></li>
+                    <li><a href="#world">Świat</a></li>
+                </ul>
+                <button id="theme-toggle" aria-label="Przełącz motyw" title="Przełącz tryb jasny i ciemny"
+                        style="border:1px solid rgba(255,255,255,0.4); background:transparent; color:#fff; padding:0.4rem 0.7rem; border-radius:6px; cursor:pointer;">
+                    🌙 Ciemny
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="latest" class="news-section">
+            <h2>Najnowsze wiadomości</h2>
+            <div class="news-grid" id="news-container">
+                
+                <article class="news-item">
+                    <h3>Zełenski: USA wyznaczyły termin do czerwca na porozumienie; zapowiedziano kolejną rundę rozmów</h3>
+                    <div class="news-meta">
+                        <span class="news-time">7 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Prezydent Ukrainy Wołodymyr Zełenski poinformował, że Stany Zjednoczone wyznaczyły Ukrainie i Rosji termin na zawarcie porozumienia kończącego wojnę do czerwca oraz że w przypadku jego niedotrzymania USA prawdopodobnie wywrą presję na obie strony. Zapowiedziano także kolejną rundę rozmów trójstronnych Ukraina–USA–Rosja, która ma się odbyć prawdopodobnie w Miami.</p>
+                    <div class="news-body collapsed" id="news-body-0"><p>Prezydent Ukrainy Wołodymyr Zełenski przekazał w wypowiedzi dla międzynarodowych mediów, powołując się na przekaz amerykański, że Stany Zjednoczone zaproponowały wyznaczenie terminu do czerwca na osiągnięcie porozumienia kończącego wojnę. Zełenski zaznaczył, że Amerykanie chcą jasnego harmonogramu działań i &quot;mówią, że chcą wszystko zakończyć do czerwca&quot;, a jeśli ten termin nie zostanie dotrzymany, administracja USA najpewniej wywrze presję na obie strony — informują dostarczone materiały prasowe cytujące agencje międzynarodowe.</p><p>Zełenski poinformował również, że Stany Zjednoczone zaproponowały zorganizowanie w nadchodzącym tygodniu kolejnej rundy rozmów trójstronnych Ukraina–USA–Rosja, które po raz pierwszy miałyby się odbyć na terenie USA, prawdopodobnie w Miami. Ukraina potwierdziła udział w tych negocjacjach. W materiałach przypomniano, że wcześniejsze rozmowy w formacie trójstronnym odbywały się w Abu Zabi — pierwsza tura miała miejsce w dniach 23–24 stycznia, a kolejna runda odbyła się w minionych dniach.</p><p>W dostarczonych relacjach Zełenski odniósł się także do sytuacji wewnętrznej w Rosji, przekazując oceny o deficycie rosyjskiego budżetu, które — według przytoczonych danych wywiadu wojskowego (HUR) — miałyby wskazywać na rzeczywisty deficyt przekraczający 100 mld dolarów w 2025 r., wobec oficjalnie podawanego deficytu ponad 80 mld. Prezydent stwierdził, że to może skłaniać Kreml do redukcji wypłat i sił na froncie oraz sugerował, że Władimir Putin rozważa przerwę w działaniach wojennych; jednocześnie podkreślił brak zaufania do retoryki rosyjskiej i przytoczył zarzuty o przemoc wobec Ukraińców od początku konfliktu.</p><p>Materiały wskazują, że dotychczasowe rundy negocjacyjne nie doprowadziły do wstrzymania walk, choć ich uczestnicy oceniali je jako konstruktywne. Informacje w artykułach pochodzą z przekazów, które cytują agencje Reutera i AP oraz relacje Zełenskiego i agencji Interfax‑Ukraina; przedstawione tu fakty zostały zsyntetyzowane wyłącznie na podstawie dostarczonych tekstów i nie obejmują dodatkowej weryfikacji zewnętrznej.</p></div>
+                    <button class="read-more" data-target="news-body-0">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">zełenski</span><span class="tag">usa</span><span class="tag">rosja</span><span class="tag">negocjacje</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>IMGW ostrzega przed gołoledzią w 10 województwach; policja raportuje utrudnienia na drogach Lubelszczyzny</h3>
+                    <div class="news-meta">
+                        <span class="news-time">7 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Instytut Meteorologii i Gospodarki Wodnej wydał ostrzeżenia pierwszego stopnia przed marznącymi opadami deszczu powodującymi gołoledź dla 10 województw; zjawisko oceniono na 80% szans. Na Lubelszczyźnie policja opublikowała zdjęcia i informuje o szeregu incydentów, blokadach dróg wojewódzkich i kłopotach ciężarówek.</p>
+                    <div class="news-body collapsed" id="news-body-1"><p>Nad Polską stacjonuje front atmosferyczny, który rozdziela chłodne powietrze na północy od cieplejszych mas na południu. Na styku tych mas występują marznące opady deszczu sprzyjające powstawaniu gołoledzi. Instytut Meteorologii i Gospodarki Wodnej (IMGW) wydał ostrzeżenia pierwszego stopnia przed marznącym deszczem powodującym gołoledź dla 10 województw; prawdopodobieństwo wystąpienia zjawiska oceniono w komunikacie na około 80 proc. Ostrzeżenia obowiązują różnie w regionach — na północy kraju do godz. 15:00, a w głębi Polski do godz. 21:00.</p><p>W efekcie na drogach występują trudne warunki. Policja z Lubelszczyzny opublikowała zdjęcia ilustrujące oblodzenia i skutki opadów marznącego deszczu; w regionie zgłaszano szereg incydentów drogowych. Lokalny portal relacjonował zablokowanie drogi wojewódzkiej nr 835 z powodu oblodzenia oraz problemy z poruszaniem się ciężarówek, w tym pługopiaskarek, z których jedna zsunęła się z jezdni i zatrzymała w poprzek. Podobne utrudnienia wystąpiły na drodze wojewódzkiej nr 806 w miejscowości Misie, gdzie pojazd ciężarowy wypadł z jezdni.</p><p>Lubelska policja zaapelowała o zachowanie ostrożności; funkcjonariusze zwracają uwagę na zjawisko określane jako &quot;szklanka&quot; — niewidoczną warstwę lodu na nawierzchni, która znacząco wydłuża drogę hamowania i zwiększa ryzyko utraty panowania nad pojazdem. W opisanych miejscach część kierowców rezygnowała z dalszej jazdy i oczekiwała na poprawę warunków, a służby podejmowały działania w celu usunięcia zagrożeń i przywrócenia przejezdności.</p><p>Choć komunikaty wskazują, że najgorsze zjawiska mogły już częściowo minąć, ostrzeżenia IMGW oraz raporty policji sygnalizują, że warunki pozostają niebezpieczne do czasu zakończenia obowiązywania alarmów. Kierowcom i pieszym zaleca się śledzenie lokalnych komunikatów drogowych i meteorologicznych oraz ograniczenie podróży, gdy warunki są trudne.</p></div>
+                    <button class="read-more" data-target="news-body-1">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">pogoda</span><span class="tag">gołoledź</span><span class="tag">drogi</span><span class="tag">lubelskie</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Rosyjski atak uszkodził infrastrukturę energetyczną Ukrainy; Ukraina poprosiła Polskę o wsparcie operatorskie</h3>
+                    <div class="news-meta">
+                        <span class="news-time">7 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">W nocy z piątku na sobotę Rosja przeprowadziła zmasowany atak na ukraińską infrastrukturę energetyczną, uszkadzając podstacje, linie przesyłowe i elektrownie cieplne. Operator Ukrenerho zwrócił się o pomoc operatorską do Polski, na co odpowiedział minister energii Miłosz Motyka, informując o wsparciu przy zachowaniu bezpieczeństwa polskiego systemu.</p>
+                    <div class="news-body collapsed" id="news-body-2"><p>W nocy z piątku na sobotę rosyjskie siły przeprowadziły, jak podały ukraińskie źródła, zmasowany atak na kluczowe elementy sieci elektroenergetycznej Ukrainy. Wicepremier i minister energetyki Denys Szmyhal poinformował, że ataki objęły stacje elektroenergetyczne oraz napowietrzne linie przesyłowe o napięciach 750 kV i 330 kV, a także elektrownie cieplne w miejscowościach Bursztyn i Dobrotwór. Według przekazu z źródeł ukraińskich Dobrotwór leży około 60 km od granicy z Polską, co podkreślało skalę i bliskość uszkodzeń do granicy.</p><p>Operator systemu przesyłowego Ukrenerho zgłosił zapotrzebowanie na pomoc w sytuacji awaryjnej i wprowadził awaryjne wyłączenia w większości regionów kraju. W przekazach pojawiła się informacja o wprowadzeniu harmonogramów awaryjnych wyłączeń prądu — od czterech do pięciu tur oraz o specjalnych harmonogramach w regionach wschodnich i północnych. Ukraińskie służby energetyczne i firmy prywatne, w tym DTEK, poinformowały o znacznym uszkodzeniu wyposażenia elektrowni cieplnych; DTEK dodała, że to kolejny z serii ataków na jej obiekty od października 2025 r. i że od początku pełnoskalowej inwazji liczba ataków na elektrownie przekraczała wcześniej wymieniane zbiory zdarzeń.</p><p>Na prośbę Ukraińców zareagował polski rząd — minister energii Miłosz Motyka przekazał na platformie X (dawniej Twitter), że Polska odebrała apel o wsparcie operatorskie dotyczące energii. Jak napisał minister, eksport do Ukrainy odbywa się przy zachowaniu bezpieczeństwa polskiego systemu elektroenergetycznego, a Polskie Sieci Elektroenergetyczne (PSE) monitorują sytuację i pozostają w kontakcie z ukraińskim operatorem. Jednocześnie przekazano, że prace naprawcze będą prowadzone, gdy pozwoli na to sytuacja bezpieczeństwa.</p><p>Równolegle Państwowa Służba ds. Sytuacji Nadzwyczajnych (DSNS) poinformowała o pożarze magazynu w Jagodzinie w obwodzie kijowskim, przypisując zdarzenie atakowi z użyciem bezzałogowego statku powietrznego; ukraińskie media wskazywały, że obiekt należał do firmy Roshen. Przekazy źródłowe podkreślały, że energetycy są gotowi do napraw i przywracania dostaw, lecz ich działania zależą od zapewnienia bezpieczeństwa na terenach uszkodzonych instalacji. Informacje o skali zniszczeń i harmonogramie przywracania dostaw przekazywane są na bieżąco przez ukraińskie służby i operatorów.</p></div>
+                    <button class="read-more" data-target="news-body-2">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">ukraina</span><span class="tag">energia</span><span class="tag">atak</span><span class="tag">polska</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Według doniesień Kenijczycy rekrutowani do służby w armii rosyjskiej wysyłani na front w Ukrainie</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Według materiału cytującego &quot;Washington Post&quot; setki obywateli Kenii zostało zwerbowanych przez firmy pośredniczące, które oferowały pracę cywilną, a w rzeczywistości kierowały kandydatów do służby w rosyjskiej armii na Ukrainie. Doniesienia wskazują też na rekrutacje w innych krajach afrykańskich i problemy z wypłatami oraz kontaktem z rodzinnymi.</p>
+                    <div class="news-body collapsed" id="news-body-3"><p>Dziennikarze cytujący &quot;Washington Post&quot; informują, że setki Kenijczyków zostały zwerbowane przez pośredniczące firmy, które oficjalnie oferowały pracę cywilną w Rosji, a w praktyce rekrutowały mężczyzn do służby w rosyjskiej armii walczącej w Ukrainie. W materiale wymieniono przypadki, gdy kandydaci otrzymywali obietnice wysokiego wynagrodzenia, a po przybyciu do Rosji byli zmuszani do podpisywania dokumentów niezrozumiałych dla nich i następnie wyposażani w broń i wysyłani na front.</p><p>Dziennikarze podkreślają, że proceder nie ogranicza się do Kenii — podobne przypadki odnotowano w Republice Południowej Afryki, Botswanie, Tanzanii, Nigerii, Ghanie, Zimbabwe i Kamerunie. W listopadzie, jak przytaczano w tekście, minister spraw zagranicznych Ukrainy podał, iż zidentyfikowano 1436 obywateli z 36 krajów afrykańskich walczących po stronie Rosji. Wśród rekrutowanych byli także byli wojskowi, w tym z oddziału SPEAR, którzy wcześniej pracowali przy ochronie placówek dyplomatycznych.</p><p>Byli rekruci i ich rodziny opisywali skrajne warunki: krótkie szkolenia prowadzone w obcym języku, wysłanie na front po kilku dniach, rany odniesione w walce oraz brak kontaktu z wieloma wysłanymi. Niektórzy twierdzili, że ich konta bankowe zostały zhakowane lub zamrożone, a wypłaty rzadko trafiały do rodzin; jedna korespondencja z rosyjskim dowódcą miała wskazywać, że odszkodowanie za śmierć przysługuje tylko krewnym posiadającym obywatelstwo rosyjskie.</p><p>Rząd Kenii, jak opisano, twierdzi, że dowiedział się o procederze z doniesień medialnych i wskazywał na ograniczenia związane z normami dyplomatycznymi, utrudniającymi m.in. działania ambasadora w Moskwie. Materiał cytuje relacje byłych rekrutów i ich rodzin oraz ustalenia dziennikarzy identyfikujących firmy, które oficjalnie rekrutowały do pracy cywilnej, a w praktyce miały kierować kandydatów do rosyjskich sił zbrojnych.</p></div>
+                    <button class="read-more" data-target="news-body-3">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">kenia</span><span class="tag">rekrutacja</span><span class="tag">rosja</span><span class="tag">ukraina</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Kontrterroryści interweniowali w Jankach — akcja przeciw przestępczości narkotykowej</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">W podwarszawskich Jankach kontrterroryści przeprowadzili 2 lutego 2026 działania, podczas których użyto granatów hukowych, informuje RMF FM. Akcja miała związek ze sprawą dotyczącą przestępczości narkotykowej; na miejscu doszło do zatrzymań, a szczegóły operacji nie zostały ujawnione.</p>
+                    <div class="news-body collapsed" id="news-body-4"><p>W podwarszawskich Jankach w województwie mazowieckim przeprowadzono interwencję policyjnych kontrterrorystów — podało RMF FM. Według rozgłośni operacja miała miejsce 2 lutego 2026 roku i była wymierzona w przestępczość narkotykową; funkcjonariusze mieli podczas działań użyć granatów hukowych.</p><p>Akcja, jak przekazały media, odbyła się na drodze przy jednym z centrów handlowych w Jankach. Na miejscu doszło do zatrzymań osób związanych ze sprawą. RMF FM informowało jednocześnie, że w trakcie działań mogą wystąpić utrudnienia w ruchu drogowym.</p><p>Rozgłośnia oraz przekazy medialne wskazują, że śledczy nie ujawnili na razie szczegółów operacji. Informacje o użyciu granatów hukowych i powiązaniu interwencji z przestępczością narkotykową pochodzą z komunikatów medialnych cytujących służby. Źródłem przekazu o akcji w tekście była rozgłośnia RMF FM (w zapisie pojawia się także odniesienie do RMF24).</p><p>Na tę chwilę brak jest publicznych, szczegółowych komunikatów śledczych zawierających dane operacyjne, liczbę zatrzymanych lub dalsze ustalenia dotyczące prowadzonego postępowania. Informacje przedstawione w artykule opierają się na przekazie medialnym cytującym rozgłośnię; dalsze dane będą możliwe do potwierdzenia po oficjalnych komunikatach organów prowadzących śledztwo.</p></div>
+                    <button class="read-more" data-target="news-body-4">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">janki</span><span class="tag">kontrterroryści</span><span class="tag">narkotyki</span><span class="tag">akcja-policyjna</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Kwarantanna w ośrodku ICE w Dilley (Teksas) po wykryciu przypadków odry</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">W ośrodku detencyjnym ICE w Dilley w Teksasie wykryto przypadki odry, co spowodowało wprowadzenie kwarantanny i zakazu przemieszczania się w obiekcie. Departament Bezpieczeństwa Krajowego (DHS) poinformował o zapewnieniu opieki medycznej, a przedstawiciele kongresowi i rzecznik deputowanego zgłaszali zaniepokojenie warunkami.</p>
+                    <div class="news-body collapsed" id="news-body-5"><p>W ośrodku detencyjnym ICE w Dilley w stanie Teksas stwierdzono przypadki odry, co skłoniło władze do wprowadzenia kwarantanny i ograniczenia przemieszczania się osadzonych w obrębie obiektu. Według przekazu zawartego w źródle pierwotnym wykryto dwa zachorowania, które zgłoszono w sobotę. Departament Bezpieczeństwa Krajowego (DHS) poinformował, że osoby zatrzymane mają zapewnioną opiekę medyczną, a część osób poddano kwarantannie w celu ograniczenia rozprzestrzeniania się choroby.</p><p>Rzeczniczka deputowanego do Izby Reprezentantów z Teksasu, Joaquina Castro, przekazała, że wykrycie odry w ośrodku Dilley uniemożliwiło przeprowadzenie planowanej delegacji Kongresu, która miała przeprowadzić inspekcję. Przedstawicielka wskazała na rzekome „nieludzkie i straszne warunki” oraz problem z dostępem do opieki medycznej; w przekazie zawarto ocenę, że ICE ponosi odpowiedzialność za te warunki i że niemowlęta, dzieci, kobiety i mężczyźni na miejscu są lekceważeni, gdy chorują i cierpią.</p><p>Artykuł przypomina także kontekst epidemiologiczny: w 2025 roku Stany Zjednoczone odnotowały najwyższą liczbę przypadków odry od momentu ogłoszenia eliminacji choroby w 2000 roku. Z przytoczonych danych wynika, że od początku roku wykryto 588 infekcji. Odra jest wysoce zakaźną chorobą wirusową, objawiającą się gorączką, kaszlem, katarem i wysypką; nieleczona może prowadzić do powikłań, takich jak zapalenie płuc czy zapalenie mózgu. Chorobie można skutecznie zapobiegać poprzez szczepienia.</p><p>Zgromadzone informacje pochodzą z przekazu dotyczącego działań DHS oraz cytowanych wypowiedzi przedstawicieli politycznych i relacji prasowych. Doniesienia wskazują na podjęte środki sanitarne w ośrodku (kwarantanna i ograniczenia ruchu), jednocześnie opisując obawy o warunki opieki i higieny. Artykuł ogranicza się do przytoczenia komunikatów władz i wypowiedzi rzeczniczych bez dodatkowych interpretacji czy spekulacji.</p></div>
+                    <button class="read-more" data-target="news-body-5">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">odra</span><span class="tag">kwarantanna</span><span class="tag">imigranci</span><span class="tag">teksas</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Balony z Białorusi: ujawniony przemyt 1,75 mln papierosów, dwa zatrzymania. Eksperci: możliwe testy obrony powietrznej</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">W styczniu funkcjonariusze Straży Granicznej zabezpieczyli około 1,75 mln sztuk papierosów zrzuconych z balonów meteorologicznych z Białorusi; wartość towaru oszacowano na około 1,78 mln zł. Zatrzymano dwóch obywateli Białorusi, którym przedstawiono zarzuty karno-skarbowe i związane z przepisami o przeciwdziałaniu wspieraniu agresji na Ukrainę; eksperci i dowództwo wskazują, że incydenty mogą służyć testowaniu reakcji i obrony powietrznej Polski.</p>
+                    <div class="news-body collapsed" id="news-body-6"><p>W styczniu 2026 roku funkcjonariusze Straży Granicznej ujawnili przemyt wyrobów tytoniowych z terytorium Białorusi do Polski przy użyciu balonów meteorologicznych. Służby zabezpieczyły łącznie około 1,75 mln sztuk papierosów bez polskiej akcyzy, a wartość ujawnionego towaru oszacowano na około 1,78 mln zł. W związku z tymi zdarzeniami Podlaski Oddział Straży Granicznej zatrzymał dwóch obywateli Białorusi; decyzją sądu obaj zostali tymczasowo aresztowani na trzy miesiące i usłyszeli zarzuty z Kodeksu karnego skarbowego oraz z ustawy dotyczącej przeciwdziałania wspieraniu agresji na Ukrainę i ochrony bezpieczeństwa narodowego.</p><p>Służby i wojsko informowały, że do zdarzeń wykorzystywano balony meteorologiczne, do których podczepiano pakunki z papierosami. Dowództwo Operacyjne Rodzajów Sił Zbrojnych oraz przedstawiciele wojska podkreślali, że nie traktują tych incydentów wyłącznie jako przemytniczych. Jak poinformował rzecznik Dowództwa, ppłk Jacek Goryszewski, szczegółowe analizy są przekazywane służbom odpowiedzialnym za bezpieczeństwo, ale z uwagi na ochronę informacji publicznie nie ujawniano wszystkich ustaleń. Ekspert ds. bezpieczeństwa, prof. Daniel Boćkowski, ocenił, że tego typu działania mogą być wykorzystywane do testowania procedur reagowania i obserwacji reakcji polskich służb.</p><p>Służby ostrzegają też przed ryzykiem związanym z używanymi balonami. Według przekazanych informacji balony napełniane były wodorem, a mieszanka wodoru z powietrzem może stwarzać zagrożenie wybuchowe, dlatego w przypadku zauważenia takich obiektów służby apelują o niepodejmowanie działań na własną rękę i informowanie odpowiednich jednostek. Wojskowy monitoring przestrzeni powietrznej ma charakter obserwacyjny, natomiast bezpośrednie działania reagujące na lądujące ładunki realizuje Straż Graniczna.</p><p>Postępowania prowadzone przez Straż Graniczną mają charakter rozwojowy; śledztwa obejmują zarówno aspekty karno-skarbowe, jak i możliwe związki z szerszymi działaniami hybrowymi. Funkcjonariusze zapowiedzieli kontynuację operacji ukierunkowanych na zwalczanie przemytu wyrobów akcyzowych, w tym wykorzystania nietypowych metod przerzutu. Osoby związane z przemytami tego rodzaju mogą podlegać poważnym konsekwencjom karnym, w tym karze pozbawienia wolności przewidzianej w obowiązujących przepisach.</p></div>
+                    <button class="read-more" data-target="news-body-6">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">przemyt</span><span class="tag">balony</span><span class="tag">bialorus</span><span class="tag">strazgraniczna</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Klinika ortopedii w Szczecinie wstrzymała planowe przyjęcia z powodu fali urazów po gołoledzi</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Uniwersytecki Szpital Kliniczny nr 1 PUM w Szczecinie czasowo wstrzymał planowe przyjęcia w Klinice Ortopedii, Traumatologii i Onkologii Narządu Ruchu z powodu gwałtownego napływu pacjentów po upadkach na oblodzonych chodnikach. Pacjenci w stanie bezpośredniego zagrożenia oraz pacjenci onkologiczni są przyjmowani bez zmian; pozostali otrzymają nowe terminy indywidualnie.</p>
+                    <div class="news-body collapsed" id="news-body-7"><p>Uniwersytecki Szpital Kliniczny nr 1 PUM w Szczecinie poinformował o czasowym wstrzymaniu planowych przyjęć w Klinice Ortopedii, Traumatologii i Onkologii Narządu Ruchu. Decyzja została podjęta w związku z gwałtownym napływem pacjentów, którzy trafili do placówki po upadkach na oblodzonych chodnikach. Klinika wskazała, że sytuacja jest efektem trudnych warunków atmosferycznych i znaczącego obciążenia służb medycznych.</p><p>W komunikacie placówki podkreślono, że w ostatnich dniach odnotowano wzrost liczby przyjęć w trybie nagłym z powodu urazów kończyn dolnych i górnych. Klinika zaznaczyła, iż znajduje się obecnie pod bardzo dużym obciążeniem i że decyzja o wstrzymaniu przyjęć planowych ma na celu zapewnienie bezpieczeństwa i zdrowia pacjentów oraz umożliwienie nieprzerwanej, szybkiej i skutecznej pomocy osobom wymagającym pilnej interwencji medycznej.</p><p>USK nr 1 poinformował również, że pacjenci w stanie bezpośredniego zagrożenia życia są przyjmowani bez zmian, a świadczenia dla pacjentów onkologicznych realizowane są bez zakłóceń. Osoby zapisane na planowe zabiegi i hospitalizacje mają zostać indywidualnie powiadomione o nowych terminach. Klinika zareagowała w ten sposób na lokalne nasilenie urazów spowodowane gołoledzią.</p><p>Komunikat szpitala odnosi tę sytuację do panujących warunków pogodowych, wskazując, że w wyniku mrozów i opadów chodniki w wielu miejscach Polski, w tym w Szczecinie, są oblodzone, co przyczynia się do zwiększonej liczby upadków i kontuzji. Decyzja o zawieszeniu przyjęć planowych ma charakter tymczasowy i ma na celu koncentrację zasobów medycznych na przypadkach pilnych.</p></div>
+                    <button class="read-more" data-target="news-body-7">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">szczecin</span><span class="tag">ortopedia</span><span class="tag">gołoledź</span><span class="tag">szpital</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Trump: Putin i Xi mieli być pod wrażeniem ataku USA; kontekst napięć z Iranem i doniesienia o protestach</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">W wywiadzie dla Dana Bongino Donald Trump twierdził, że przywódcy Rosji i Chin wyrażali podziw po przeprowadzonym według niego ataku USA na cele nuklearne w Iranie 22 czerwca ub.r. Tekstom towarzyszy opis napięć wokół Iranu, w tym doniesienia o styczniowych protestach i dużej liczbie ofiar według niepotwierdzonych źródeł.</p>
+                    <div class="news-body collapsed" id="news-body-8"><p>W wywiadzie udzielonym podcasterowi Danowi Bongino Donald Trump powiedział, że rozmawiał z przywódcami Chin i Rosji i że obaj mieli być &quot;pod wrażeniem&quot; skuteczności amerykańskiego uderzenia na terytorium Iranu. Według relacji Trumpa Xi Jinping miał skomentować operację jako &quot;bardzo imponujące&quot;, a Władimir Putin miał powiedzieć &quot;Łał, to było coś&quot;. W materiale przypomniano też, że Trump wcześniej podkreślał dokładność i skuteczność tego ataku oraz że atak z 22 czerwca ub.r. miał zostać przeprowadzony na cele nuklearne na terenie Iranu na jego polecenie.</p><p>Artykuł przytacza również wypowiedzi Trumpa o potrzebie szacunku dla Stanów Zjednoczonych oraz jego ostatnie groźby wobec Iranu. Według przekazu, prezydent USA kilkukrotnie ostrzegał o &quot;ogromnej armadzie&quot; zmierzającej w kierunku Iranu i informował o przesunięciach sił, w tym o wysłaniu samolotów HC-130J Combat King II na Bliski Wschód. Trump miał również wyrażać nadzieję na zawarcie porozumienia z Teheranem.</p><p>Drugi tekst w zestawie opisuje sytuację wewnętrzną w Iranie: w styczniu miały miejsce masowe protesty, a media cytowane w artykule podawały — jako niepotwierdzone szacunki — że w ciągu dwóch dni po wyłączeniu internetu 8 stycznia zamordowano ponad 30 tys. demonstrantów. Artykuł wskazuje na oskarżenia, że rozkazy tłumienia miały pochodzić od najwyższych przywódców, oraz na doniesienia o represjach wobec rodzin przedstawicieli reżimu, w tym zapowiedzi utraty wiz wjazdowych do USA dla niektórych członków elit politycznych.</p><p>Wszystkie przytoczone informacje pochodzą z materiałów źródłowych zawartych w dostarczonym zestawie. Artykuł nie weryfikuje niezależnie twierdzeń o wypowiedziach przywódców zagranicznych ani liczb ofiar protestów; tam, gdzie źródła zaznaczały brak potwierdzenia, tekst to zaznacza w formie relacji doniesień i wypowiedzi stron.</p></div>
+                    <button class="read-more" data-target="news-body-8">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">trump</span><span class="tag">iran</span><span class="tag">protesty</span><span class="tag">putin</span><span class="tag">xi</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Karol Nawrocki ułaskawił trzy osoby; pięć wniosków odrzuconych</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">2 lutego 2026 r. prezydent Karol Nawrocki zastosował prawo łaski wobec trzech osób i odmówił łaski pięciu innym, poinformowała Kancelaria Prezydenta oraz rzecznik prasowy. Ułaskawienia dotyczyły spraw m.in. nieumyślnego sprowadzenia katastrofy w ruchu lądowym, grożenia karalnego oraz oszustwa gospodarczego.</p>
+                    <div class="news-body collapsed" id="news-body-9"><p>Prezydent Rzeczypospolitej Polskiej Karol Nawrocki w postanowieniach z dnia 2 lutego 2026 r. zastosował prawo łaski wobec trzech osób, jednocześnie odmawiając udzielenia łaski w pięciu innych wnioskach. Informację o decyzjach opublikował rzecznik prasowy Pałacu Prezydenckiego Rafał Leśkiewicz, a komunikaty w tej sprawie przekazała Kancelaria Prezydenta RP.</p><p>Z komunikatów wynika, że jedna z ułaskawionych osób była skazana za nieumyślne sprowadzenie katastrofy w ruchu lądowym; wobec tej osoby prezydent warunkowo zawiesił wykonanie kary pozbawienia wolności na okres próby. Druga osoba została ułaskawiona w związku z wyrokiem za kierowanie gróźb karalnych — wobec niej darowano karę więzienia. Trzecia osoba była skazana za oszustwo, wyrządzenie szkody w obrocie gospodarczym w wielkich rozmiarach oraz pokrzywdzenie wierzycieli; wobec niej wykonanie kary zostało warunkowo zawieszone i zastąpione dozorem kuratorskim na czas próby.</p><p>Kancelaria Prezydenta wskazała, że przy podejmowaniu decyzji brano pod uwagę względy humanitarne, pozytywne opinie sądów oraz wnioski Prokuratora Generalnego. Jednocześnie prezydent złożył w trybie art. 567 § 2 k.p.k. żądanie przekazania akt w czterech sprawach, których rozstrzygnięcie wymaga dopracowania dokumentacji sprawy.</p><p>Przypomniano także podstawę prawną działania prezydenta: zgodnie z art. 139 Konstytucji RP prezydent stosuje prawo łaski, które nie przysługuje w stosunku do osób skazanych przez Trybunał Stanu. Kancelaria nie ujawniła personaliów ułaskawionych osób w komunikatach przekazanych mediom.</p></div>
+                    <button class="read-more" data-target="news-body-9">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">prawo łaski</span><span class="tag">karol nawrocki</span><span class="tag">kancelaria prezydenta</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Nietrzeźwy kierowca wjechał na chodnik w Czersku, potrącił kobietę i dziecko; zatrzymany</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">W Czersku (woj. pomorskie) 2 lutego 2026 około godz. 18:10 kierowca Volkswagena wjechał na chodnik przy ul. Targowej, potrącił 32-letnią kobietę i kilkuletnie dziecko, po czym porzucił samochód i uciekł. Sprawca, 25-letni mieszkaniec Czerska, został zatrzymany; miał blisko 1,5 promila alkoholu w organizmie.</p>
+                    <div class="news-body collapsed" id="news-body-10"><p>W poniedziałek 2 lutego 2026 około godziny 18:10 policja otrzymała zgłoszenie o potrąceniu pieszych na ulicy Targowej w Czersku (woj. pomorskie). Według wstępnych ustaleń kierujący samochodem marki Volkswagen stracił panowanie nad pojazdem, wjechał na chodnik i potrącił 32-letnią kobietę oraz kilkuletnie dziecko. Po zdarzeniu sprawca porzucił uszkodzony samochód i oddalił się z miejsca.</p><p>Policjanci szybko ustalili tożsamość i zatrzymali podejrzanego. To 25-letni mieszkaniec Czerska; przeprowadzone badanie stanu trzeźwości wykazało u niego blisko 1,5 promila alkoholu w organizmie. Funkcjonariusze prowadzą dalsze czynności mające na celu wyjaśnienie przebiegu zdarzenia oraz okoliczności, w jakich kierowca opuścił miejsce wypadku po porzuceniu pojazdu.</p><p>Poszkodowani zostali przetransportowani do szpitala. Jak przekazano w materiałach służb, kilkaletnie dziecko zostało zabrane śmigłowcem Lotniczego Pogotowia Ratunkowego, trafiła tam również jego matka. Informacje o zdarzeniu przekazały lokalne służby i policja; sprawa jest nadal przedmiotem postępowania prowadzonego przez Komendę Powiatową Policji w Chojnicach oraz służby medyczne i ratownicze.</p></div>
+                    <button class="read-more" data-target="news-body-10">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">czersk</span><span class="tag">potrącenie</span><span class="tag">nietrzeźwość</span><span class="tag">wypadek drogowy</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Ławrow: rozmieszczenie zagranicznych sił na Ukrainie będzie traktowane jako interwencja</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Rosyjskie Ministerstwo Spraw Zagranicznych opublikowało komunikat powołując się na słowa ministra Siergieja Ławrowa, w którym oświadczono, że rozmieszczenie zagranicznych sił zbrojnych lub infrastruktury wojskowej w Ukrainie zostanie uznane za zagraniczną interwencję i potraktowane jako uzasadniony cel. W oświadczeniu wspomniano także o ewentualnym zagrożeniu proliferacją broni jądrowej i pochwalono wysiłki administracji Donalda Trumpa.</p>
+                    <div class="news-body collapsed" id="news-body-11"><p>Rosyjskie Ministerstwo Spraw Zagranicznych opublikowało komunikat, w którym resort, powołując się na wypowiedzi ministra Siergieja Ławrowa, stwierdził, że rozmieszczenie jakichkolwiek zagranicznych sił zbrojnych, jednostek wojskowych, magazynów lub innej infrastruktury wojskowej na terytorium Ukrainy zostanie przez Moskwę uznane za zagraniczną interwencję. Według komunikatu takie siły miałyby być traktowane jako &quot;uzasadnione cele&quot; dla rosyjskich sił zbrojnych; w komunikacie przytoczono także przykład, że nawet niemieckie kontyngenty rozmieszczone w Ukrainie zostałyby objęte tym stanowiskiem.</p><p>W opublikowanym oświadczeniu MSZ Rosji wskazano, że kraje zachodnie rozważające rozmieszczenie sił na Ukrainie w celu zabezpieczenia porozumienia pokojowego muszą mieć świadomość konsekwencji wynikających z rosyjskiej oceny takiego kroku. Komunikat został odnotowany przez międzynarodowe agencje informacyjne i cytowany w relacjach prasowych, które przytaczają treść stanowiska Moskwy oraz kontekst polityczny przedstawiony przez rosyjskie ministerstwo.</p><p>W wypowiedziach przypisywanych Ławrowowi pojawiły się także inne stanowiska dotyczące bieżącej sytuacji międzynarodowej. Minister miał krytycznie ocenić rolę niektórych państw w mediacji (w tym stwierdzenie o utracie statusu &quot;uczciwego pośrednika&quot; przez Finlandię), zwracać uwagę na rzekome ryzyko rozprzestrzeniania broni jądrowej w „zbiorowym Zachodzie” oraz wyrazić uznanie dla wysiłków administracji Donalda Trumpa w kontekście rozwiązania kryzysu ukraińskiego.</p><p>Relacje prasowe zawierające ten komunikat wskazują także na szerszy kontekst doniesień: materiały informujące o stanowisku rosyjskiego MSZ przypominają, że przekazy płynące z oficjalnych mediów i przedstawicieli Kremla są elementem szerszej debaty i mogą być wykorzystywane w wojnie informacyjnej. Równocześnie w innych relacjach prasowych odnotowano informacje o działaniach zbrojnych w regionach przyfrontowych oraz o komentarzach władz ukraińskich dotyczących ataków na infrastrukturę, co stanowi tło dla komunikatu Moskwy.</p><p>Przekazane przez rosyjskie służby i cytowane przez agencje informacje mają charakter oficjalny i podnoszą napięcie w debacie międzynarodowej. Relacje te wymagają dalszego monitorowania i weryfikacji przez niezależne źródła; niniejsze streszczenie opiera się wyłącznie na materiałach udostępnionych w dostarczonych źródłach prasowych.</p></div>
+                    <button class="read-more" data-target="news-body-11">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">rosja</span><span class="tag">ukraina</span><span class="tag">ławrow</span><span class="tag">bezpieczeństwo</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Apogeum mrozów w Polsce: awarie ciepłownicze, przerwy w dostawie prądu i zamknięte szkoły</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">W nocy z poniedziałku na wtorek w Polsce nastąpiło apogeum mrozów z temperaturami do -28 st. C na północnym wschodzie. Z powodu mrozu ponad 3,5 tys. osób pozostaje bez prądu, a w Trójmieście awaria kotła w elektrociepłowni spowodowała ograniczenia w dostępie do ogrzewania. Ponad 330 placówek oświatowych zostało zamkniętych lub przeszło na nauczanie zdalne.</p>
+                    <div class="news-body collapsed" id="news-body-12"><p>W poniedziałek w Polsce odnotowano bardzo niskie temperatury; najniższa zmierzona wyniosła -27,7 st. C w Suwałkach, a w Warszawie termometry wskazały -18,6 st. C. Instytut Meteorologii i Gospodarki Wodnej (IMGW) wydał ostrzeżenia pierwszego i drugiego stopnia przed mrozami dla niemal całego kraju; apogeum spodziewane było w nocy z poniedziałku na wtorek, gdy na północnym wschodzie słupki rtęci mogą pokazać -28 st. C, a temperatura odczuwalna sięgnąć -36 st. C. Na pozostałym obszarze prognozowano około -20 st. C w centrum i -6 st. C na południowym zachodzie.</p><p>Z powodu ekstremalnych warunków meteorologicznych ponad 3,5 tys. osób pozostało bez dostaw prądu. Najwięcej awarii odnotowano na Warmii i Mazurach — około 850 odbiorców — oraz na Podlasiu — około 800. Służby informowały o działaniach mających na celu przywrócenie zasilania i minimalizowanie skutków przerw, szczególnie w rejonach dotkniętych największymi spadkami temperatury.</p><p>W Trójmieście doszło do nieszczelności kotła w jednej z elektrociepłowni w Gdańsku, co spowodowało częściowe ograniczenia dostępu do ogrzewania i ciepłej wody dla tysięcy mieszkańców. Władze przekazały, że część szkół została tymczasowo zamknięta, a ciepło przekierowano z innych obiektów do budynków mieszkalnych. Prezes Gdańskiego Przedsiębiorstwa Energetyki Cieplnej (GPEC) Marcin Lewandowski podał wstępne szacunki, że awaria może zostać naprawiona w środę; zakład przewiduje, że temperatury w mieszkaniach powinny utrzymywać się między 15 a 18 st. C.</p><p>Niskie temperatury i utrudnienia spowodowały także zamknięcie ponad 330 placówek oświatowych — najwięcej na Mazowszu (ponad 170), po 40 na Warmii i Mazurach, 27 na Pomorzu oraz ponad 13 placówek na Lubelszczyźnie. Przepisy przewidują, że w pomieszczeniach, gdzie odbywają się zajęcia, temperatura powinna wynosić co najmniej 18 st. C; szkołę można zamknąć, jeśli temperatura zewnętrzna mierzona o godz. 21 w dwóch kolejnych dniach przed zawieszeniem zajęć wynosi -15 st. C lub mniej albo występują inne zdarzenia pogodowe zagrażające zdrowiu uczniów. W związku z falą mrozów uruchomiono namioty grzewcze i inne formy pomocy — w Warszawie namioty z ciepłymi napojami działają w określonych godzinach, w Lublinie i Elblągu stosowane są koksowniki oraz specjalne autobusy do ogrzewania mieszkańców. Policja przypomina o zagrożeniu dla osób bezdomnych, samotnych i nietrzeźwych oraz apeluje o zgłaszanie przypadków wymagających pomocy pod numer alarmowy 112. Według przekazanych informacji w ostatniej dobie z powodu wychłodzenia zmarły trzy osoby.</p></div>
+                    <button class="read-more" data-target="news-body-12">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">mróz</span><span class="tag">awaria</span><span class="tag">szkoły</span><span class="tag">energetyka</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Akta Epsteina: informator FBI o rzekomym zarządzaniu majątkiem Putina oraz zaprzeczenia Donalda Trumpa</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Departament Sprawiedliwości USA opublikował kolejną transzę dokumentów dotyczących Jeffreya Epsteina; w jednym z odtajnionych formularzy FD-1023 informator twierdził, że Epstein był „menedżerem majątku” Władimira Putina i Roberta Mugabe. Równocześnie Donald Trump zaprzeczył, że był zaprzyjaźniony z Epsteinem oraz że przebywał na jego wyspie, i oskarżył autora Michaela Wolffa o spisek przeciwko sobie.</p>
+                    <div class="news-body collapsed" id="news-body-13"><p>Departament Sprawiedliwości USA opublikował kolejną partię dokumentów związanych ze sprawą Jeffreya Epsteina, obejmującą miliony stron akt. W jednym z dokumentów opisanym jako formularz FD-1023 z 13 grudnia 2017 r. – oznaczonym klauzulami „tajne” i „nie dla obcokrajowców” – anonimowe poufne źródło przekazało informację, że Epstein miał rzekomo pełnić funkcję „menedżera majątku” prezydenta Władimira Putina oraz świadczyć podobne usługi dla Roberta Mugabe. Dokument zawiera także inne niezweryfikowane twierdzenia informatora; z materiałów nie wynika jednoznacznie, czy i jak FBI wykorzystało te informacje.</p><p>Z ujawnionych akt wynika również, że Epstein utrzymywał kontakty z kilkoma Rosjanami powiązanymi według materiałów z Kremlem. W e-mailach do rosyjskiego miliardera Władisława Doronina Epstein pisał o „przyjacielu Putina” i omawiał możliwość spotkania z rosyjskim przywódcą, próbując jednocześnie zorganizować takie rozmowy za pośrednictwem byłego premiera Norwegii Thorbjørna Jaglanda. W dokumentach pojawiają się też wzmianki o innych osobach i kontaktach — w tym o rzekomych powiązaniach z organizatorami forum w Petersburgu oraz propozycjach przekazania informacji szefowi rosyjskiej dyplomacji.</p><p>W odpowiedzi na publikację akt prezydent USA Donald Trump za pośrednictwem platformy Truth Social oświadczył, że nie był zaprzyjaźniony z Epsteinem, zaprzeczył, by kiedykolwiek przebywał na „wyspie Epsteina”, i napisał, że Epstein oraz dziennikarz Michael Wolff mieli rzekomo spiskować, by zaszkodzić jego prezydenturze. W opublikowanych dokumentach nazwisko Trumpa pojawia się w dużej liczbie pozycji — według części relacji w ponad 3,2 tysiącach dokumentów — a sam Trump zapowiedział też kroki prawne wobec Wolffa.</p><p>Materiały udostępnione przez resort sprawiedliwości obejmują zarówno odnotowane przez agentów informacje od informatorów, jak i korespondencję oraz inne zapisy; wiele przekazów w aktach jest opisanych jako niezweryfikowane. Niektóre z ujawnionych twierdzeń były wcześniej przedstawiane w mediach i przez różne źródła, a niektóre zarzuty wymagały dalszej weryfikacji lub zostały wycofane w indywidualnych przypadkach. Z opublikowanych fragmentów wynika wyraźnie rozróżnienie między udokumentowaną korespondencją a anonimowymi doniesieniami z formularzy takich jak FD-1023.</p></div>
+                    <button class="read-more" data-target="news-body-13">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">epstein</span><span class="tag">trump</span><span class="tag">dokumenty</span><span class="tag">rosja</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Zełenski przedłuża sankcje wobec prorosyjskich oligarchów, w tym Firtasza i współpracowników</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Prezydent Ukrainy Wołodymyr Zełenski podpisał nowe decyzje o przedłużeniu sankcji koordynowane z Wielką Brytanią. Restrykcje obejmują m.in. Dmytra Firtasza, jego współpracowników oraz Tarasa Kozaka i osiem powiązanych spółek.</p>
+                    <div class="news-body collapsed" id="news-body-14"><p>Prezydent Ukrainy Wołodymyr Zełenski poinformował o podpisaniu nowych decyzji dotyczących sankcji, których obowiązywanie zostało przedłużone w ścisłej koordynacji z Wielką Brytanią. Działania objęły środki wobec osób i podmiotów, których wcześniejsze restrykcje miały się wkrótce zakończyć, a których rzekome powiązania z Rosją uznano za podstawę do dalszej blokady gospodarczej i prawnej.</p><p>W pierwszym zakresie przedłużono sankcje wobec byłego oligarchy Dmytra Firtasza. W ramach skoordynowanych działań restrykcjami objęto także jego najbliższych współpracowników oraz spółkę pozostającą pod jego kontrolą. Zełenski podkreślił, że wszystkie podmioty powiązane z Rosją i jej strukturami powinny zostać objęte blokadą.</p><p>Sankcje rozszerzono również wobec Tarasa Kozaka, opisanego jako bliski współpracownik Wiktora Medwedczuka, oraz wobec ośmiu spółek powiązanych z nim. Prezydent zaznaczył, że osoby te jeszcze przed rozpoczęciem pełnoskalowej agresji Rosji opowiedziały się po stronie Moskwy, co stanowiło jeden z argumentów do utrzymania restrykcji.</p><p>Zełenski dodał, że dwustronny dokument o gwarancjach bezpieczeństwa ze strony USA jest według niego gotowy, i że prowadzone są prace nad dokumentami dotyczącymi odbudowy i rozwoju gospodarczego. Poinformował także o naradzie negocjacyjnej przed rozmowami Ukraina–USA–Rosja, zaplanowanymi na najbliższe dni w Abu Zabi; wskazał, że działania deeskalacyjne pomagają budować zaufanie do procesu negocjacji.</p></div>
+                    <button class="read-more" data-target="news-body-14">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">ukraina</span><span class="tag">sankcje</span><span class="tag">zełenski</span><span class="tag">oligarchowie</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Legnickie wodociągi: nawet 100 prób cyberataków dziennie, spółka wzmacnia bezpieczeństwo</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Legnickie Przedsiębiorstwo Wodociągów i Kanalizacji S.A. informuje o nasileniu prób ingerencji w infrastrukturę; prezes Paweł Gambal mówi o nawet 100 próbach cyberataków dziennie. Spółka zwiększyła zatrudnienie w dziale IT, inwestuje w oprogramowanie i współpracuje z Agencją Bezpieczeństwa Wewnętrznego oraz policją.</p>
+                    <div class="news-body collapsed" id="news-body-15"><p>Legnickie Przedsiębiorstwo Wodociągów i Kanalizacji S.A. zgłasza wzrost liczby prób ataków na swoją infrastrukturę. Jak przekazał prezes Paweł Gambal, spółka doświadcza nawet 100 prób cyberataków w ciągu jednego dnia. W wystąpieniach cytowanych przez lokalne media wskazano na nasilenie prób wtargnięć i obserwacji obiektów należących do zakładu.</p><p>W ostatnim roku odnotowano kilkanaście prób wejść na teren obiektów wodociągowych; pojawiały się także drony oraz osoby fotografujące infrastrukturę. Prezes Gambal i przedstawiciele spółki zwracają uwagę, że próby te dotyczą zarówno działań fizycznych, jak i cybernetycznych, co skłoniło firmę do podjęcia dodatkowych środków bezpieczeństwa. Spółka poinformowała również o planowanych prac na ulicy Bydgoskiej.</p><p>Skala działalności spółki została przytoczona jako kontekst zagrożeń: firma eksploatuje i konserwuje 315 km sieci wodociągowej oraz 269 km sieci kanalizacyjnej i obsługuje Legnicę oraz ościenne gminy. Prezes wskazał, że w większych miastach problem związany z ochroną infrastruktury może być jeszcze poważniejszy, co uzasadnia prowadzoną politykę zabezpieczeń.</p><p>W odpowiedzi na zagrożenia spółka zwiększyła zatrudnienie w dziale informatycznym, inwestuje w nowoczesne oprogramowania i rozwiązania z zakresu cyberbezpieczeństwa oraz deklaruje współpracę z Agencją Bezpieczeństwa Wewnętrznego i policją. Informacje te pochodzą z komunikatów firmy i relacji lokalnych mediów cytowanych w przekazanym materiale.</p></div>
+                    <button class="read-more" data-target="news-body-15">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">cyberbezpieczeństwo</span><span class="tag">wodociągi</span><span class="tag">legnica</span><span class="tag">infrastruktura</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Policja poszukuje 15-letniej Oliwii Szopy z Krakowa</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Policja poszukuje 15‑letniej Oliwii Szopy, która zaginęła po wyjściu z domu w Krakowie 30 stycznia około godz. 17:00. Funkcjonariusze proszą osoby posiadające informacje o kontakt z Komisariatem Policji VII w Krakowie lub numerem alarmowym 112.</p>
+                    <div class="news-body collapsed" id="news-body-16"><p>15‑letnia Oliwia Szopa wyszła z domu na osiedlu Oświecenia w Krakowie w piątek, 30 stycznia, około godziny 17:00 i od tego czasu nie wróciła ani nie nawiązała kontaktu z rodziną. Z przekazanego komunikatu wynika, że nastolatka nie poinformowała rodziców, dokąd się udaje i na jak długo wychodzi. Brak kontaktu z krewnymi budzi poważny niepokój bliskich.</p><p>Według opisu Oliwia miała mieć na sobie czarną kurtkę, sportowe buty w tym samym kolorze oraz jeansowe spodnie. Policja podaje, że ma około 158 cm wzrostu, długie ciemne włosy, niebieskie oczy i szczupłą budowę ciała. Informacje te pochodzą z komunikatu przesłanego przez policję, na którym opiera się apel o pomoc.</p><p>W sprawie zaginięcia policjanci z Małopolski wystosowali publiczny apel o udzielenie informacji. Osoby, które posiadają jakiekolwiek wiadomości dotyczące miejsca pobytu Oliwii Szopy, proszone są o kontakt z Komisariatem Policji VII w Krakowie pod numerem telefonu 47-83-52-911 lub o zgłoszenie informacji pod numerem alarmowym 112. Policja nie przekazała dalszych szczegółów dotyczących okoliczności zaginięcia.</p><p>Rodzina i służby apelują o rozpowszechnienie informacji oraz ostrożność przy przekazywaniu danych, by nie utrudniać działań poszukiwawczych. Wszystkie zgłoszenia mogą przyczynić się do szybkiego odnalezienia nastolatki; policja prosi o kontakt każdą osobę, która widziała Oliwię po godzinie 17:00 30 stycznia lub dysponuje innymi informacjami na jej temat.</p></div>
+                    <button class="read-more" data-target="news-body-16">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">krakow</span><span class="tag">zaginieni</span><span class="tag">policja</span><span class="tag">oliwia</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Donald Tusk potwierdził wizytę na Ukrainie na zaproszenie Wołodymyra Zełenskiego</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Premier Donald Tusk poinformował w serwisie X, że w najbliższych dniach odwiedzi Ukrainę na zaproszenie prezydenta Wołodymyra Zełenskiego, podkreślając, że &quot;W tym dramatycznym czasie Ukraina nie może pozostać sama&quot;. Nie podano dokładnych dat wizyty.</p>
+                    <div class="news-body collapsed" id="news-body-17"><p>Premier Donald Tusk ogłosił w serwisie X, że w najbliższych dniach złoży wizytę w Kijowie na zaproszenie prezydenta Ukrainy Wołodymyra Zełenskiego. W opublikowanym wpisie podkreślił, że &quot;W tym dramatycznym czasie Ukraina nie może pozostać sama&quot;. Z komunikatu nie wynikały szczegółowe daty ani program wizyty.</p><p>W dostarczonym materiale przypomniano kontekst trwającej pełnoskalowej wojny na Ukrainie oraz trudne warunki zimowe, które pogarszają sytuację mieszkańców. W stolicy kraju, Kijowie, występują problemy z dostawami prądu i wody, a ogólny stan infrastruktury cywilnej jest narażony na skutki działań zbrojnych.</p><p>Artykuł zwraca też uwagę na ostatnie ataki na infrastrukturę cywilną, wskazując na incydent z 1 lutego w obwodzie dniepropietrowskim, gdzie według źródła rosyjski dron zaatakował autobus, w wyniku czego zginęło 12 osób, a siedem zostało rannych. Dodatkowo tekst informuje, że negocjacje z udziałem ukraińskich przedstawicieli planowane są w środę i czwartek w Abu Zabi.</p><p>Premier Tusk nie sprecyzował w komunikacie, w których konkretnie dniach będzie przebywał na Ukrainie. Informacja ma charakter bieżącej relacji i łączy zapowiedź wizyty z opisanym w artykule humanitarnym i militarnym kontekstem sytuacji w Ukrainie.</p></div>
+                    <button class="read-more" data-target="news-body-17">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">polityka</span><span class="tag">ukraina</span><span class="tag">tusk</span><span class="tag">wojna</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Dron spadł na teren 2. Ośrodka Radioelektronicznego w Przasnyszu. Żandarmeria prowadzi dochodzenie</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">28 stycznia na teren 2. Ośrodka Radioelektronicznego w Przasnyszu spadł dron nieznanego pochodzenia, około 70 metrów od magazynu uzbrojenia. Żandarmeria Wojskowa zabezpieczyła urządzenie i wszczęła postępowanie w sprawie naruszenia przepisów ruchu lotniczego; ze wstępnych ustaleń wynika, że mogło chodzić o drona-zabawkę.</p>
+                    <div class="news-body collapsed" id="news-body-18"><p>Do zdarzenia doszło 28 stycznia na terenie 2. Ośrodka Radioelektronicznego w Przasnyszu. Jak przekazują raporty dziennikarskie, bezzałogowy statek powietrzny został zaobserwowany przez służbę dyżurną jednostki, po czym spadł na teren placówki — według relacji około 70 metrów od magazynu z uzbrojeniem. W dostępnych komunikatach zaznaczono, że zdarzenie nie spowodowało szkód materialnych.</p><p>Żandarmeria Wojskowa poinformowała, że placówka w Przasnyszu została powiadomiona o zdarzeniu około godziny 18:00 i natychmiast podjęto czynności procesowe. Zabezpieczono odnaleziony dron, przeprowadzono przesłuchania świadków (rozpoczęte tego samego dnia około godziny 19:30) oraz inne czynności dowodowe. W relacjach pojawiła się informacja, że po upadku drona został wniesiony do jednego z budynków jednostki, co według źródeł dziennikarskich mogło naruszyć procedury postępowania z takim urządzeniem.</p><p>Ze wstępnych ustaleń wynika, że urządzenie było pozbawione karty SIM i karty pamięci; rzecznicy Żandarmerii wskazali, że na pierwszy rzut oka wyglądało to na drona-zabawkę, jednak ostateczna ocena należy do biegłych. Sprawa jest prowadzona jako postępowanie dotyczące naruszenia przepisów Prawa lotniczego (art. 212 ust. 1, pkt 1, lit. a), za które grozi kara do 5 lat pozbawienia wolności — tak wynika z komunikatu przekazanego przez służby.</p><p>2. Ośrodek Radioelektroniczny w Przasnyszu to jednostka specjalizująca się w działaniach radioelektronicznych i monitoringu przestrzeni radiowej w północno-wschodniej Polsce, w tym na obszarze Przesmyku Suwalskiego. Dochodzenie Żandarmerii Wojskowej nadal trwa; służby oczekują na opinię biegłych oraz końcowe ustalenia dotyczące pochodzenia i funkcji odnalezionego drona.</p></div>
+                    <button class="read-more" data-target="news-body-18">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">dron</span><span class="tag">żandarmeria</span><span class="tag">wojskowy</span><span class="tag">przasnysz</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Tusk pojedzie do Kijowa; Zełenski przygotowuje zespół do rozmów w Abu Zabi, Witkoff leci najpierw do Izraela</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Premier Donald Tusk ogłosił, że na zaproszenie prezydenta Wołodymyra Zełenskiego uda się w najbliższych dniach do Kijowa. Równocześnie Zełenski spotkał się z zespołem negocjacyjnym przed planowanymi trójstronnymi rozmowami w Abu Zabi, a amerykański wysłannik Steve Witkoff zaplanował wizytę w Izraelu przed przylotem do ZEA.</p>
+                    <div class="news-body collapsed" id="news-body-19"><p>Premier Donald Tusk poinformował, że w najbliższych dniach udaje się do Kijowa na zaproszenie prezydenta Ukrainy Wołodymyra Zełenskiego. W wpisie na serwisie X podkreślił, że „w tym dramatycznym czasie Ukraina nie może pozostać sama”. Deklaracja została opublikowana w kontekście nasilonych ataków na infrastrukturę energetyczną i związanych z tym wyzwań humanitarnych.</p><p>Sytuacja w Ukrainie w ostatnim czasie była opisywana jako szczególnie trudna ze względu na uszkodzenia sieci energetycznej, przerwy w dostawach prądu i ogrzewania oraz silne mrozy, które w niektórych regionach osiągały do minus 30°C. Pierwszy wicepremier Ukrainy, minister energetyki Denys Szmyhal, podziękował w spotkaniu online polskiemu ministrowi energii Miłoszowi Motyce za wsparcie, w tym przekazanie 141 ładunków humanitarnych i 3,1 mln euro na Fundusz Wspierania Energetyki. Z raportów wynika także, że UE przygotowała dostawy 500 generatorów oraz przeznaczyła 50 mln euro na wsparcie energetyczne, a w ramach polskiej zbiórki „Ciepło z Polski dla Kijowa” zgromadzono ponad 8,9 mln zł.</p><p>Prezydent Wołodymyr Zełenski spotkał się z ukraińskim zespołem negocjacyjnym przed kolejną rundą rozmów trójstronnych z udziałem Rosji i USA, które zapowiedziano na środę i czwartek w Abu Zabi. Zełenski poinformował, że zatwierdził ramy rozmów i wyznaczył konkretne zadania zespołowi, wskazując jednocześnie, że delegacja ukraińska planuje spotkania dwustronne ze stroną amerykańską. Pierwsza tura trójstronnych rozmów odbyła się 23–24 stycznia.</p><p>Amerykański wysłannik ds. misji pokojowych Steve Witkoff ma w tym tygodniu najpierw udać się do Izraela, gdzie zaplanowane jest spotkanie z premierem Benjaminem Netanjahu, a następnie ma przylecieć do Abu Zabi na kolejną turę rozmów z przedstawicielami Moskwy i Kijowa. Wcześniej Witkoff rozmawiał w Miami z przedstawicielem Rosji Kiriłłem Dmitrijewem, określając to spotkanie jako „konstruktywne”. Te ustalenia wskazują na jednoczesne działania polityczne i dyplomatyczne mające na celu podtrzymanie procesu negocjacyjnego oraz wsparcie humanitarne dla Ukrainy.</p></div>
+                    <button class="read-more" data-target="news-body-19">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">ukraina</span><span class="tag">tusk</span><span class="tag">zełenski</span><span class="tag">negocjacje</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Ponad 330 szkół zamkniętych z powodu mrozów; miejscami temperatura bliska -30°C</h3>
+                    <div class="news-meta">
+                        <span class="news-time">2 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">W związku z utrzymującymi się silnymi mrozami w Polsce zamknięto ponad 330 szkół; część placówek zorganizowała naukę zdalną i zajęcia opiekuńcze. Temperatura miejscami spadła do wartości odczuwalnych bliskich -30°C, a służby lokalne uruchomiły ogrzewane namioty i pomoc dla mieszkańców.</p>
+                    <div class="news-body collapsed" id="news-body-20"><p>Resort edukacji poinformował, że w poniedziałek z powodu niskich temperatur w całej Polsce zawieszono zajęcia w ponad 330 szkołach. W niektórych placówkach dyrektorzy zorganizowali naukę zdalną oraz zajęcia opiekuńcze dla uczniów. Decyzje o odwołaniu lekcji wynikały z kryteriów dotyczących temperatury w pomieszczeniach i warunków zewnętrznych, które określa rozporządzenie ministra edukacji.</p><p>Zgodnie z komunikatem Ministerstwa Edukacji minimalna temperatura w salach, w których odbywają się zajęcia, powinna wynosić co najmniej 18°C; jeśli nie jest możliwe jej zapewnienie, dyrektor zawiesza zajęcia i powiadamia organ prowadzący. Dyrektor ma też możliwość zawieszenia zajęć, za zgodą organu prowadzącego, gdy temperatura zewnętrzna mierzona o godz. 21.00 w dwóch kolejnych dniach poprzedzających zawieszenie wynosi -15°C lub mniej.</p><p>Sławomir Broniarz, prezes Związku Nauczycielstwa Polskiego, ocenił, że decyzje dyrektorów podejmowane były w oparciu o obowiązujące przepisy i zdrowy rozsądek, zwracając uwagę na bezpieczeństwo uczniów, w tym na drogę do szkoły w ekstremalnym mrozie. W przekazach lokalnych i ogólnokrajowych pojawiły się relacje o bardzo niskich temperaturach: w niektórych miejscach termometry pokazywały wartości bliskie -22°C, a temperatura odczuwalna spadała nawet do około -30°C; lokalnie prognozowano spadki temperatur do niemal -29°C.</p><p>Silny mróz wpłynął także na inne obszary życia publicznego — odnotowano masowe opóźnienia pociągów oraz problemy z ogrzewaniem w regionach nadmorskich. W Trójmieście zgłaszano awarie sieci grzewczej, a w Gdańsku i Sopocie uruchomiono możliwość wypożyczenia grzejników; lokalne służby i straż pożarna rozstawiły także namioty grzewcze, które w niektórych miejscach działały całodobowo dla osób potrzebujących pomocy. Wszystkie powyższe informacje pochodzą z przekazów lokalnych i krajowych opublikowanych w materiałach źródłowych.</p></div>
+                    <button class="read-more" data-target="news-body-20">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">pogoda</span><span class="tag">mrozy</span><span class="tag">szkoły</span><span class="tag">bezpieczeństwo</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Kryzys polityczny w Czechach. Tysiące demonstrowały w Pradze, minister Macinka zapowiada ignorowanie kancelarii prezydenta</h3>
+                    <div class="news-meta">
+                        <span class="news-time">1 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Spór między ministrem spraw zagranicznych Petrem Macinką a prezydentem Petrem Pavlem zaostrzył się po ujawnieniu SMS-ów dotyczących propozycji nominacji Filipa Turka. W niedzielę w Pradze odbyła się demonstracja poparcia dla prezydenta, a w parlamencie zapowiedziano głosowanie nad wotum nieufności wobec rządu.</p>
+                    <div class="news-body collapsed" id="news-body-21"><p>W mijającym tygodniu doszło do ostrego sporu między ministrem spraw zagranicznych Petrem Macinką, reprezentującym część rządu premiera Andreja Babiša, a prezydentem Petrem Pavlem. Konflikt dotyczy odmowy przez prezydenta mianowania Filipa Turka – honorowego przewodniczącego partii Zmotoryzowani – na stanowisko ministerialne. Pavel ujawnił wiadomości tekstowe wysłane do jego doradcy, które uznał za próbę szantażu.</p><p>Macinka w programie czeskiej telewizji publicznej oświadczył, że on i Ministerstwo Spraw Zagranicznych będą ignorować kancelarię prezydenta, argumentując, że działania Pavla mają charakter niekonstytucyjny i stawiają go w roli prezydenta opozycji. W ujawnionych wiadomościach Macinka miał grozić, że Pavel nie będzie kierować czeską delegacją na szczyt NATO w Turcji; minister wykluczył także rezygnację pomimo wezwań opozycji.</p><p>Prezydent Pavel wielokrotnie odmówił mianowania Filipa Turka, wskazując na jego brak poszanowania dla porządku prawnego i przypominając o wypowiedziach Turka określanych jako sympatyzowanie z nazistowskimi Niemcami. W związku ze sporem zapowiedziano, że Izba Poselska parlamentu będzie głosować nad wotum nieufności wobec rządu w nadchodzącym tygodniu.</p><p>W niedzielę na Rynku Staromiejskim i dolnej części Placu Wacława w Pradze odbyła się demonstracja poparcia dla prezydenta zorganizowana przez inicjatywę &quot;Milion chwil dla demokracji&quot;. Organizatorzy podali, że w proteście wzięło udział 80–90 tys. osób; inicjatywa wskazała również na petycje internetowe podpisane przez około 600 tys. osób i zapowiedziała możliwość organizacji kolejnej demonstracji, jeśli liczba podpisów osiągnie milion. Podczas zgromadzenia przemawiali przedstawiciele organizacji pozarządowych, aktorzy, naukowcy i duchowni, którzy krytykowali także działania rządu, m.in. zmiany w służbie cywilnej i plany dotyczące finansowania mediów publicznych.</p></div>
+                    <button class="read-more" data-target="news-body-21">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">czechy</span><span class="tag">polityka</span><span class="tag">protesty</span><span class="tag">prezydent</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Katarzyna Pełczyńska-Nałęcz przewodniczącą Polski 2050; Hennig-Kloska proponuje rolę dla Hołowni</h3>
+                    <div class="news-meta">
+                        <span class="news-time">1 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Katarzyna Pełczyńska-Nałęcz wygrała powtórzoną II turę wyborów na przewodniczącą Polski 2050, zdobywając 350 z 659 głosów. Paulina Hennig-Kloska zapowiedziała ubieganie się o funkcję wiceprzewodniczącej i oceniła, że Szymon Hołownia byłby odpowiednim kandydatem na wicepremiera z ramienia Polski 2050.</p>
+                    <div class="news-body collapsed" id="news-body-22"><p>W sobotnich wyborach wewnętrznych Polska 2050 wybrała na przewodniczącą Katarzynę Pełczyńską-Nałęcz. Według przedstawionych wyników w powtórzonej II turze głosowania Pełczyńska-Nałęcz uzyskała 350 głosów na 659 głosujących członków partii, podczas gdy jej rywalka Paulina Hennig-Kloska otrzymała 309 głosów. Wybór nowej przewodniczącej poprzedziła wewnętrzna kampania i dyskusje programowe, a wynik głosowania został przedstawiony w relacjach medialnych z posiedzenia Rady Krajowej Polski 2050.</p><p>Paulina Hennig-Kloska, pełniąca funkcję szefowej Ministerstwa Klimatu i Środowiska (MKiŚ), w wypowiedzi dla mediów poinformowała, że zamierza ubiegać się o stanowisko wiceprzewodniczącej partii i że liczy na to, iż Rada Krajowa wykorzysta 309 głosów oddanych na jej kandydaturę. Hennig-Kloska zadeklarowała chęć kontynuowania „wizji zmian”, o której rozmawiała z wyborcami w trakcie kampanii wewnętrznej, oraz zaznaczyła, że nie otrzymała dotychczas propozycji od nowej przewodniczącej.</p><p>W rozmowie na antenie telewizyjnej Hennig-Kloska oceniła również, że Szymon Hołownia mógłby pełnić funkcję wicepremiera z ramienia Polski 2050 w rządzie, podkreślając jednak, że decyzja w tej sprawie zależy zarówno od Hołowni, jak i od nowej przewodniczącej. Dodała, że rozmawiała z Pełczyńską-Nałęcz o zwołaniu zjazdu krajowego, który mógłby rozważyć utworzenie stanowiska „honorowego przewodniczącego-założyciela” dla Hołowni. Media relacjonowały także, że Hołownia dotychczas nie pogratulował publicznie zwycięstwa nowej przewodniczącej; w ubiegłości deklarował, że nie zamierza ubiegać się o funkcję wicepremiera ani wstępować do rządu.</p><p>Nowa przewodnicząca zapowiedziała zamiar spotkań z liderami ugrupowań tworzących koalicję rządzącą, by omówić dalszą współpracę. Pełczyńska-Nałęcz wskazała na konieczność trzymania się zobowiązań wobec wyborców; w komunikatach związanych z wyborem wymieniano cele takie jak sprawiedliwy system podatkowy, gospodarka oparta na innowacjach oraz polityka mieszkaniowa wspierająca dostępność mieszkań. W relacjach prasowych podkreślono, że Polska 2050 pozostaje częścią koalicji rządzącej, a rozmowy z partnerami mają wyjaśnić dalszy sposób współdziałania w parlamencie i rządzie.</p></div>
+                    <button class="read-more" data-target="news-body-22">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">polska 2050</span><span class="tag">liderzy</span><span class="tag">hołownia</span><span class="tag">koalicja</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Sąd w Kępnie zastosował trzymiesięczny areszt wobec 24-latka podejrzanego o zabójstwo 14-latki</h3>
+                    <div class="news-meta">
+                        <span class="news-time">1 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Sąd Rejonowy w Kępnie zastosował trzymiesięczny areszt wobec 24-letniego podejrzanego o zabójstwo 14-letniej dziewczynki. Podejrzany przyznał się do uduszenia pokrzywdzonej podczas sprzeczki; śledczy przeprowadzili eksperyment procesowy i planują dalsze czynności dowodowe.</p>
+                    <div class="news-body collapsed" id="news-body-23"><p>Sąd Rejonowy w Kępnie na wniosek prokuratora zastosował trzymiesięczny areszt wobec 24-letniego mężczyzny, któremu zarzucono zabójstwo 14-letniej dziewczynki. Jak poinformował prokurator Marcin Kubiak z Prokuratury Okręgowej w Ostrowie Wielkopolskim, decyzja o areszcie została podjęta z uwagi na obawę ucieczki, ukrycia się podejrzanego lub bezprawnego wpływania na tok postępowania.</p><p>Śledczy ustalili, że do zdarzenia doszło w czwartek w mieszkaniu na Osiedlu Spółdzielczym w Kępnie. Mieszkanie wynajmowała obywatelka Ukrainy, która przebywała w pracy; razem z nią mieszkała 14-letnia córka. Klucze do lokalu miał także podejrzany, również obywatel Ukrainy. Sąsiedzi zgłosili na policję, że z mieszkania leje się woda; po wyważeniu drzwi znaleziono nieprzytomną dziewczynkę na zalanym przedpokoju.</p><p>Ratownicy medyczni podjęli reanimację, jednak dziewczynka zmarła. Na ciele nie stwierdzono zewnętrznych obrażeń; sekcja zwłok wykazała, że przyczyną zgonu było uduszenie. Prokuratura informuje, że podejrzany przyznał się do zarzucanego czynu, złożył wyjaśnienia i wziął udział w eksperymencie procesowym, podczas którego odtworzył przebieg zdarzenia.</p><p>Prokurator Kubiak podał, że prowadzący sprawę planuje przesłuchania świadków oraz podjęcie kolejnych czynności dowodowych. Podejrzanemu grozi kara od 10 do 30 lat pozbawienia wolności lub dożywotnie więzienie. Postępowanie prowadzi Prokuratura Okręgowa w Ostrowie Wielkopolskim; sprawa jest w toku i na tym etapie śledczy nie ujawniają motywu sprzeczki między podejrzanym a pokrzywdzoną.</p></div>
+                    <button class="read-more" data-target="news-body-23">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">zabójstwo</span><span class="tag">kępno</span><span class="tag">prokuratura</span><span class="tag">sąd</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Chamenei: styczniowe protesty w Iranie były &quot;zamachem stanu&quot;</h3>
+                    <div class="news-meta">
+                        <span class="news-time">1 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Najwyższy przywódca Iranu ajatollah Ali Chamenei w przemówieniu w Teheranie określił styczniowe protesty antyrządowe jako próbę &quot;zamachu stanu&quot;. W przemówieniu odwoływał się do rewolucji z 1979 roku i krytykował rolę USA; w relacji medialnej przytoczono zarówno oficjalne dane o ponad 3000 ofiarach, jak i szacunki organizacji HRANA.</p>
+                    <div class="news-body collapsed" id="news-body-24"><p>Ajatollah Ali Chamenei w niedzielnym wystąpieniu w Teheranie nazwał styczniowe protesty antyrządowe próbą &quot;zamachu stanu&quot;. Według przekazu zamieszczonego w relacji prasowej Chamenei stwierdził, że protestujący zaatakowali policję, budynki rządowe, koszary Gwardii Rewolucyjnej, banki i meczety oraz spalili Koran, a sama próba miała się nie powieść. Przemówienie zostało wygłoszone przed zwolennikami najwyższego przywódcy i relacjonowane przez media krajowe.</p><p>W tekście źródłowym wskazano różne dane dotyczące ofiar: oficjalne źródła rządowe podają ponad 3000 zabitych, natomiast amerykańska organizacja Human Rights Activists News Agency (HRANA) zgłosiła wyższą liczbę ofiar — 6713 osób, w tym ofiary nieletnie. Relacja opisuje jednocześnie, że starcia zostały stłumione z użyciem siły, a trwają dochodzenia i spory co do rzeczywistej skali strat ludzkich.</p><p>Chamenei w swoim wystąpieniu odwoływał się do rewolucji islamskiej z 1979 roku i krytykował domniemane próby zewnętrznej ingerencji w sprawy Iranu, wymieniając w kontekście geopolitycznym rolę Stanów Zjednoczonych. W relacji prasowej przytoczono też informacje o zwiększonym obecności sił amerykańskich w regionie — w tym wysłaniu okrętów do Zatoki Perskiej, co miało być interpretowane jako reakcja zewnętrzna na napięcia.</p><p>W artykule źródłowym załączono również informacje o źródłach zdjęć (East News, Getty Images i inne agencje). Przy przygotowaniu tego tekstu korzystano z relacji prasowej dostępnej publicznie; nie przeprowadzono niezależnego dochodzenia dotyczącego liczby ofiar ani szczegółów operacji bezpieczeństwa. Czytelnicy powinni mieć na uwadze, że dane o ofiarach różnią się w zależności od raportów i że przekazy rządowe i organizacji pozarządowych podają odmienne liczby.</p></div>
+                    <button class="read-more" data-target="news-body-24">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">iran</span><span class="tag">protesty</span><span class="tag">chamenei</span><span class="tag">prawaczłowieka</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Mężczyzna zginął podczas kuligu za quadem w Bronowicach. Prokuratura wszczęła śledztwo</h3>
+                    <div class="news-meta">
+                        <span class="news-time">1 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">W Bronowicach (gmina Trzebiel, woj. lubuskie) podczas kuligu ciągniętego przez quada zginął 49-letni mężczyzna; uderzył głową w słup energetyczny i zmarł na miejscu. Prokuratura Rejonowa w Żarach prowadzi śledztwo, w związku ze zdarzeniem zatrzymano dwóch uczestników.</p>
+                    <div class="news-body collapsed" id="news-body-25"><p>W sobotę wieczorem w miejscowości Bronowice w województwie lubuskim 49-letni mężczyzna zginął w wyniku wypadku podczas kuligu, w którym sanki były ciągnięte przez quada. Według zgłoszeń służb zdarzenie miało miejsce około godziny 20:30 na drodze publicznej; uczestnik jadący na sankach uderzył głową w słup energetyczny i zmarł na miejscu.</p><p>Prokuratura Rejonowa w Żarach nadzoruje śledztwo mające wyjaśnić okoliczności i przyczyny zdarzenia. Jak poinformowano, trwają ustalenia dotyczące przebiegu wypadku oraz tego, kto kierował pojazdem mechanicznym. W związku ze zdarzeniem zatrzymano dwóch mężczyzn, którzy brali udział w kuligu; szczegóły ich statusu procesowego będą podawane przez organy prowadzące postępowanie.</p><p>Przypomniano również, że na drogach publicznych obowiązuje zakaz organizowania kuligów ciągniętych przez pojazdy mechaniczne — legalny kulig może być organizowany przy udziale zwierząt (np. zaprzęgów konnych) i przy zachowaniu wymogów bezpieczeństwa. W przypadku wypadku ze skutkiem śmiertelnym sprawcom może grozić odpowiedzialność karna, o czym również informuje nadzorująca śledztwo prokuratura.</p><p>Materiały zdjęciowe opublikowane w relacji mają charakter poglądowy. Dochodzenie ma na celu ustalenie wszystkich okoliczności wydarzenia oraz wskazanie ewentualnych sprawców i zakresu ich odpowiedzialności; prokuratura będzie informować o wynikach postępowania zgodnie z procedurami.</p></div>
+                    <button class="read-more" data-target="news-body-25">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">wypadek</span><span class="tag">kulig</span><span class="tag">lubuskie</span><span class="tag">prokuratura</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Siarczyste mrozy: szkoły zawieszają zajęcia, w miastach pojawiły się ogrzewane namioty</h3>
+                    <div class="news-meta">
+                        <span class="news-time">1 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Instytut Meteorologii i Gospodarki Wodnej wydał ostrzeżenia przed silnym mrozem, lokalnie do -29°C. W związku z tym w wybranych gminach Warmii i Mazur oraz Podlasia zawieszono zajęcia szkolne, a w Olsztynie, Elblągu i Ełku uruchomiono ogrzewane punkty dla potrzebujących.</p>
+                    <div class="news-body collapsed" id="news-body-26"><p>W związku z napływem wyjątkowo zimnego powietrza IMGW wydał ostrzeżenia pierwszego i drugiego stopnia przed silnym mrozem dla znacznej części kraju, a na północnym wschodzie prognozowane są temperatury minimalne miejscami do -29°C. W komunikatach wskazano, że bardzo niskie temperatury utrzymają się przez kilka dni i stanowią realne zagrożenie dla zdrowia i życia, zwłaszcza dla osób bezdomnych i narażonych na długotrwałe przebywanie na zewnątrz.</p><p>W efekcie włodarze niektórych gmin zdecydowali o czasowym zawieszeniu zajęć dydaktyczno-wychowawczych. W województwie warmińsko-mazurskim i podlaskim podjęto takie decyzje m.in. w gminach Korsze, Orneta, Lidzbark Warmiński, Bartoszyce oraz w miejscowości Nurzec-Stacja. Szkoły pozostają otwarte dla dzieci wymagających opieki, działają świetlice, a w wybranych miejscach zapewniono dowóz uczniów lub usprawiedliwienie nieobecności tam, gdzie transportu nie organizowano.</p><p>W największych miastach województwa warmińsko-mazurskiego – Olsztynie, Elblągu i Ełku – uruchomiono tymczasowe, ogrzewane punkty dla osób potrzebujących pomocy. Punkty te, według urzędowych informacji, oferują możliwość ogrzania się oraz gorące napoje; namioty ustawiono m.in. na Placu Jedności Słowiańskiej przy Wysokiej Bramie w Olsztynie, na Placu Słowiańskim w Elblągu oraz w parku przy ul. Armii Krajowej w Ełku. Za organizację stanowisk odpowiadały służby, w tym Państwowa Straż Pożarna, we współpracy z samorządami.</p><p>W komunikatach przypomniano zalecenia służb: w sytuacji bezpośredniego zagrożenia życia należy dzwonić pod numer 112. Dla osób w kryzysie bezdomności podano także informację o całodobowej, bezpłatnej infolinii (800 165 320), gdzie można uzyskać informację o dostępnej pomocy i zgłosić osoby wymagające wsparcia. Decyzje o zawieszeniu zajęć opierały się na przepisach dotyczących bezpieczeństwa w placówkach oświatowych oraz na ocenach warunków lokalnych przedstawianych przez dyrektorów szkół i organy prowadzące.</p></div>
+                    <button class="read-more" data-target="news-body-26">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">pogoda</span><span class="tag">mroz</span><span class="tag">szkolnictwo</span><span class="tag">pomoc</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Rosyjski dron uderzył w autobus służbowy w Pawłohradzie; kilkunastu zabitych</h3>
+                    <div class="news-meta">
+                        <span class="news-time">1 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">W rejonie Pawłohradu w obwodzie dniepropietrowskim rosyjski dron uderzył w autobus służbowy, powodując pożar i ofiary śmiertelne. Liczba zabitych różni się w relacjach — od 12 do 15 osób; kilka osób zostało rannych i przewieziono je do szpitala.</p>
+                    <div class="news-body collapsed" id="news-body-27"><p>W rejonie Pawłohradu w obwodzie dniepropietrowskim doszło do ataku drona na autobus służbowy jednej z firm, informuje Państwowa Służba Ukrainy ds. Sytuacji Nadzwyczajnych (DSNS). Pojazd zapalił się po uderzeniu, na miejscu działały służby ratownicze, które ugasiły pożar i udzieliły pomocy poszkodowanym.</p><p>Różne źródła podają odmienne wstępne liczby ofiar. Serwis WP przekazał informację o 15 zabitych i siedmiu rannych, natomiast relacja Onet/Sky News cytująca źródła ukraińskie informuje o 12 zabitych i siedmiu rannych przewiezionych do szpitala. Raporty określają osoby w autobusie jako pracowników kopalni — cywilów niezwiązanych z działaniami wojennymi.</p><p>Gubernator obwodu dniepropietrowskiego Ołeksandr Handża ostrzegał mieszkańców o obowiązującym alarmie lotniczym i apelował o zachowanie ostrożności. Rzecznik Praw Obywatelskich Ukrainy Dmytro Lubinets podkreślił, że w autobusie znajdowali się cywile i skomentował atak jako kolejny przypadek przemocy wobec ludności cywilnej.</p><p>W relacjach kontekstowych pojawia się także informacja o innych atakach tego samego dnia; Onet przekazał, że w ataku na szpital położniczy w Zaporożu rannych zostało kilka osób. Sytuacja pozostaje dynamiczna, a podane liczby są wstępne — informacje o ofiarach i stanie poszkodowanych mogą być aktualizowane przez ukraińskie służby.</p></div>
+                    <button class="read-more" data-target="news-body-27">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">ukraina</span><span class="tag">atak</span><span class="tag">cywile</span><span class="tag">drone</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>USA wysyłają specjalistyczne samoloty ku rejonowi Iranu; doniesienia o wzmocnieniu sił w Zatoce Perskiej</h3>
+                    <div class="news-meta">
+                        <span class="news-time">1 Lutego 2026</span>
+                    </div>
+                    <p class="news-summary">Polskie serwisy informują, że Stany Zjednoczone skierowały w stronę Iranu specjalistyczne samoloty HC-130J Combat King II oraz transportowy C-17 Globemaster III. Równocześnie media cytują doniesienia o przesunięciach dodatkowych sił i systemów obrony w rejon Zatoki Perskiej.</p>
+                    <div class="news-body collapsed" id="news-body-28"><p>Według publikacji polskich serwisów informacyjnych, amerykańskie samoloty HC-130J Combat King II wystartowały z bazy Patrick na Florydzie i skierowały się w stronę Iranu, a z bazy Moody w Georgii wyruszył transportowy C-17 Globemaster III z elementami 41. Eskadry Ratowniczej na pokładzie. Informacje te były przekazywane za pośrednictwem portalu Defence Blog i cytowane w doniesieniach krajowych mediów.</p><p>W materiałach prasowych opisano, że HC-130J to specjalistyczne samoloty poszukiwawczo-ratownicze przeznaczone do ewakuacji zestrzelonych załóg i zwykle rozmieszczane przy spodziewanych stratach w działaniach powietrznych. Z relacji wynika także, że w kierunku Bliskiego Wschodu skierowano inne środki, takie jak samoloty Growler do walki elektronicznej, tankowce KC-46A, samolot WC-135R oraz kilka transportowców C-5, co zostało odnotowane w analizach przytaczanych przez serwisy.</p><p>Dodatkowo cytowane są nieoficjalne informacje o przesunięciach systemów obrony powietrznej do baz w regionie Zatoki Perskiej — w tym baterii THAAD i systemów Patriot — co ma na celu ochronę sił amerykańskich i sojuszników. Doniesienia te pochodzą z relacji dziennika Wall Street Journal, które zostało przekazane polskim czytelnikom przez serwisy przytaczające raporty zagraniczne.</p><p>Media zwracają też uwagę na kontekst polityczny: przywództwo USA prowadzi rozmowy z Iranem, lecz według doniesień prezydent USA nie wyklucza użycia siły, jeśli negocjacje zakończą się fiaskiem. Jednocześnie podawane są informacje, że niektóre państwa regionu nie zgadzają się na udostępnienie przestrzeni powietrznej do potencjalnych operacji uderzeniowych.</p><p>Na obecnym etapie dostępne raporty opisują rozmieszczenie i przesunięcia sprzętu oraz personelu, lecz nie potwierdzają żadnego ostatecznego rozkazu przeprowadzenia ataku. Informacje pochodzą z relacji prasowych opierających się na źródłach militarnych i mediach zagranicznych; brak jest publicznego potwierdzenia od amerykańskiego Departamentu Obrony, które jednoznacznie wskazywałoby na planowaną operację ofensywną.</p></div>
+                    <button class="read-more" data-target="news-body-28">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">iran</span><span class="tag">usa</span><span class="tag">lotnictwo</span><span class="tag">bezpieczeństwo</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Awaria sieci energetycznej powoduje blackout w Ukrainie i przerwy w dostawach w Mołdawii</h3>
+                    <div class="news-meta">
+                        <span class="news-time">31 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">W ukraińskim systemie elektroenergetycznym wystąpiła poważna awaria, która doprowadziła do masowych przerw w dostawach prądu i wymusiła awaryjne wyłączenia w regionach Ukrainy. Zakłócenia wpłynęły także na system energetyczny Mołdawii, gdzie kilka rejonów zostało pozbawionych energii elektrycznej.</p>
+                    <div class="news-body collapsed" id="news-body-29"><p>W sobotę ukraińskie władze poinformowały o dużej przerwie w dostawach energii w krajowym systemie elektroenergetycznym. Minister energetyki Denys Szmyhal przekazał na Telegramie, że doszło do „olbrzymiej przerwy” w dostawach prądu z powodu awarii; jednocześnie wyłączona została linia 400 kV łącząca systemy Rumunii i Mołdawii oraz linia 750 kV łącząca zachodnią i centralną Ukrainę. W wyniku problemów dyspozytorzy podjęli decyzję o rozładunku bloków elektrowni jądrowej oraz wprowadzili harmonogramy awaryjnego wyłączania dostaw prądu w różnych regionach kraju.</p><p>W Kijowie oraz w obwodach kijowskim, żytomierskim i charkowskim wprowadzono awaryjne wyłączenia prądu. Premier i minister energetyki zgłosili sytuację jako kryzysową, a prezydent Wołodymyr Zełenski zapewnił, że niezbędne środki zaradcze zostały uruchomione, a prace naprawcze trwają. Eksperci cytowani przez media oceniają, że dostawy prądu mogą zostać przywrócone w ciągu kilku godzin — niektóre źródła wskazywały na przywrócenie w ciągu 2–3 godzin.</p><p>Awaria wpłynęła również na Mołdawię: część regionów tego kraju została pozbawiona zasilania. Burmistrz Kiszyniowa Ion Ceban informował o przerwach w dostawie energii niemal w całej stolicy i wezwał służby do pilnej oceny sytuacji oraz uruchomienia agregatów tam, gdzie było to konieczne. W wyniku zakłóceń w niektórych miejscach nie działała sygnalizacja świetlna, a służby celne zgłaszały wydłużone procedury odprawy towarów na granicach.</p><p>Równocześnie służby energetyczne w obu krajach prowadzą prace naprawcze i stabilizacyjne. Ministerstwo energii Mołdawii informowało, że w części miejscowości dostawy prądu zostały już przywrócone, a ukraińskie służby techniczne pracują nad usunięciem konsekwencji awarii. Media przekazywały, że w niektórych regionach Ukrainy występowały też inne problemy techniczne (m.in. zerwane przez oblodzenie linie w obwodzie odeskim), co dodatkowo utrudniało sieciowe przywracanie zasilania. Władze apelują o zachowanie ostrożności i informują, że działania naprawcze są w toku.</p></div>
+                    <button class="read-more" data-target="news-body-29">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">energia</span><span class="tag">ukraina</span><span class="tag">mołdawia</span><span class="tag">awaria</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Fala mrozów w Polsce: ekstremalne temperatury, ofiary i zapowiedź ocieplenia z ryzykiem gołoledzi</h3>
+                    <div class="news-meta">
+                        <span class="news-time">31 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">Na przełomie końca stycznia i początku lutego Polska doświadcza wyjątkowo silnej fali mrozów, z prognozami lokalnych spadków temperatur nawet do -30°C. Policja potwierdziła dwa ostatnie przypadki zgonów z wychłodzenia, a równocześnie prognozy przewidują ocieplenie od południa pod koniec tygodnia, co może przynieść intensywne opady i gołoledź.</p>
+                    <div class="news-body collapsed" id="news-body-30"><p>Aktualna fala mrozów obejmuje cały kraj, a media informują o najniższych temperaturach tej zimy. Według publikacji Onetu, w najbliższych nocach na wschodzie Polski termometry mogą wskazywać nawet do -25/-30°C, a w głębi kraju spodziewane są wartości rzędu -15/-20°C. W ciągu dnia temperatury również pozostają niskie, szczególnie na północy i wschodzie.</p><p>Równocześnie materiały informacyjne wskazują na tragiczne skutki zimna dla osób bezdomnych i słabo zabezpieczonych. Portal WP przekazał, że policja potwierdziła śmierć dwóch osób z powodu wychłodzenia w ciągu ostatniej doby, a łączna liczba ofiar od początku listopada wynosi 36. W odpowiedzi na sytuację władze oraz służby rekomendują zapewnienie dostępu do ogrzewanych miejsc, a dworce kolejowe mają być otwarte całodobowo jako dodatkowe schronienie.</p><p>Prognozy meteorologiczne cytowane przez Onet wskazują na zmianę pogody pod koniec pierwszego tygodnia lutego: z południa i południowego zachodu mają nasunąć się cieplejsze masy powietrza. To ocieplenie nie będzie jednak wolne od zagrożeń — autorzy przewidują intensywne opady śniegu oraz marznącego deszczu, które mogą spowodować szeroką gołoledź. Największe zagrożenie warunków śliskich wymieniane jest na dni około 4–5 lutego.</p><p>Doniesienia medialne łączą informację o ekstremalnych mrozach z równoczesnymi ostrzeżeniami meteorologicznymi oraz działaniami służb porządkowych i samorządów. Przekazy obejmują zarówno prognozy temperaturowe i opady, jak i komunikaty o przygotowaniu miejsc tymczasowego schronienia. Artykuły podkreślają możliwość znaczących utrudnień komunikacyjnych i apelują do monitorowania oficjalnych komunikatów służb odpowiedzialnych za bezpieczeństwo publiczne.</p></div>
+                    <button class="read-more" data-target="news-body-30">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">pogoda</span><span class="tag">mróz</span><span class="tag">gołoledź</span><span class="tag">zagrożenia</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Prognoza waloryzacji emerytur na 2026 r.: około 4,9 proc., podwyżki od 1 marca</h3>
+                    <div class="news-meta">
+                        <span class="news-time">31 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">Prognozowany wskaźnik waloryzacji emerytur na 2026 rok wynosi około 4,9 proc., a ostateczna wartość zostanie potwierdzona po publikacji danych GUS w lutym 2026 r. Waloryzacja obejmie świadczenia ZUS i KRUS i ma wejść w życie 1 marca 2026 r.; minimalna emerytura ma wzrosnąć nominalnie o około 4,9 proc.</p>
+                    <div class="news-body collapsed" id="news-body-31"><p>Według prognozy publicznie udostępnionej w relacji prasowej, w 2026 roku świadczenia emerytalno-rentowe mają zostać podwyższone o około 4,9 proc. Informacja podkreśla, że ostateczny wskaźnik waloryzacji zostanie potwierdzony po publikacji danych GUS dotyczących inflacji i przeciętnych wynagrodzeń za 2025 rok, a następnie ZUS przeliczy i ogłosi konkretne kwoty.</p><p>W przykładzie przywołanym przez źródło najniższa emerytura brutto podniesiona z 1 878,91 zł do 1 970,98 zł brutto (ok. 1 793,59 zł netto) po waloryzacji o 4,9 proc. oznacza w skali roku około 1 000 zł więcej dla osoby otrzymującej minimalne świadczenie. Wzrost będzie procentowy, więc nominalnie wyższe świadczenia wzrosną więcej niż świadczenia niższe.</p><p>Waloryzacja zaplanowana jest według standardowego mechanizmu stosowanego corocznie i obejmie emerytury oraz renty wypłacane przez ZUS i KRUS, w tym renty rodzinne i renty z tytułu niezdolności do pracy. Zgodnie z zapowiedzią, podwyżki mają wejść w życie 1 marca 2026 r., po finalnym przeliczeniu przez ZUS na podstawie danych GUS.</p><p>Źródło podaje także, że elementy decydujące o wskaźniku waloryzacji to m.in. wskaźnik inflacji oraz zmiany przeciętnego wynagrodzenia — mechanizm uwzględnia oba te składniki i przewiduje odrębne reguły, jeśli przeciętne wynagrodzenie wzrośnie znacząco (np. o 20 proc.). Ostateczne kwoty i potwierdzenie wskaźnika zależą od danych statystycznych publikowanych przez GUS i od decyzji ZUS, który dokona ostatecznych przeliczeń świadczeń.</p></div>
+                    <button class="read-more" data-target="news-body-31">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">waloryzacja</span><span class="tag">emerytury</span><span class="tag">zus</span><span class="tag">krus</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Ekstremalne mrozy w Polsce: 36 ofiar wychłodzenia, prognozy do -30°C i utrudnienia na kolei</h3>
+                    <div class="news-meta">
+                        <span class="news-time">31 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">Policja potwierdziła dwie kolejne śmierci z wychłodzenia w ciągu ostatniej doby, co zwiększa liczbę ofiar od początku listopada do 36. IMGW i serwisy pogodowe prognozują kolejny epizod silnych mrozów, miejscami do -25/-30°C, a mróz powoduje utrudnienia w ruchu kolejowym, m.in. przy stacji Warszawa Zachodnia.</p>
+                    <div class="news-body collapsed" id="news-body-32"><p>Policja poinformowała o wynikach sekcji zwłok dwóch osób, których przyczyną śmierci było wychłodzenie organizmu; w ciągu doby potwierdzono dwie takie ofiary, a od początku listopada łączna liczba zgonów wskazywanych przez służby jako spowodowane wychłodzeniem wzrosła do 36. W komunikacie wskazano, że działania władz i służb koncentrują się na ochronie osób najbardziej narażonych, w tym osób bezdomnych i w kryzysie bezdomności.</p><p>Według prognoz cytowanych przez serwisy pogodowe i IMGW, na północnym wschodzie kraju temperatury nocami mogą spadać do ok. -25 do -27°C, lokalnie z odczuciem zimna dochodzącym do -35°C. Niektóre prognozy wskazują, że w kulminacyjnym okresie fali mrozów wschodnia Polska może doświadczyć spadków temperatur nawet do -30°C, a wartości poniżej -25°C były w Polsce w ostatnich latach rzadkie i notowane głównie lokalnie.</p><p>W związku z siarczystym mrozem władze uruchomiły dodatkowe środki pomocowe: wszystkie dworce kolejowe zostały zadeklarowane jako otwarte całodobowo, by zapewnić schronienie osobom potrzebującym, a do samorządów wystosowano apele o otwieranie dworców autobusowych. Służby apelują o czujność oraz o zgłaszanie przypadków osób, które mogą potrzebować pomocy; policyjne patrole sprawdzają ulice, pustostany i inne miejsca, gdzie mogą przebywać osoby narażone na wychłodzenie.</p><p>Mróz wpływa również na funkcjonowanie transportu. ZTM i przewoźnicy zgłaszali rano utrudnienia przy stacji Warszawa Zachodnia — opóźnienia, przekierowania i odwołania kursów SKM i KM — a operatorzy wskazują, że awarie taboru i systemów sterowania ruchem mogą być związane z niskimi temperaturami. Portal pasażera i raporty lokalne odnotowują problemy także w innych regionach kraju. Służby rekomendują przygotowanie na dalsze utrudnienia w ruchu kolejowym podczas kulminacji mrozów.</p></div>
+                    <button class="read-more" data-target="news-body-32">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">pogoda</span><span class="tag">mróz</span><span class="tag">bezpieczeństwo</span><span class="tag">transport</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>DOJ ujawnił maile Epsteina z polskimi wątkami; dokumenty pokazują też kontakty z elitami</h3>
+                    <div class="news-meta">
+                        <span class="news-time">31 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">Departament Sprawiedliwości USA opublikował nowy zestaw akt dotyczących Jeffreya Epsteina, w którym pojawiają się wątki związane z Polską — m.in. korespondencja z kobietami z Polski, rezerwacje lotów i wzmianki o historii oraz transformacji gospodarczej. Materiały zawierają też wymiany z wpływowymi postaciami z USA i Europy.</p>
+                    <div class="news-body collapsed" id="news-body-33"><p>Departament Sprawiedliwości Stanów Zjednoczonych udostępnił kolejny pakiet akt dotyczących sprawy Jeffreya Epsteina, którymi według raportów objęto ponad 3 miliony stron dokumentów. W opublikowanym materiale prasowym wskazano, że wśród ujawnionych wiadomości znajduje się prawie dwa tysiące e‑maili, w których przewijają się wątki związane z Polską. W niektórych wiadomościach Epstein korespondował z kobietami pochodzącymi z Polski, a część korespondencji odnosiła się do biletów lotniczych, zaproszeń oraz propozycji wsparcia edukacji i mieszkania dla jednej z modelek.</p><p>W opublikowanych fragmentach znajduje się korespondencja z lat 2011–2014, w tym informacje, że asystentka Epsteina rezerwowała bilety linii LOT z lotniska Johna F. Kennedy’ego do Warszawy. W jednym z maili opisane zostały także fragmenty wyglądające na cytaty z treści historycznych dotyczących Polski, odniesienia do kwestii żydowskiego życia religijnego przed II wojną światową oraz akapity poświęcone transformacji gospodarczej lat 90., które — według dokumentów — mogły być skopiowane z dostępnych źródeł.</p><p>Równocześnie inny zestaw ujawnionych materiałów pokazuje rozległe kontakty Epsteina z wpływowymi postaciami ze świata polityki i biznesu. W dokumentach pojawiają się wymienione nazwiska osób zaangażowanych w życie publiczne oraz biznesowe, a także liczne wymiany z takimi postaciami jak Steve Bannon i Elon Musk, co obrazuje zakres relacji Epsteina z elitami krajowymi i międzynarodowymi. Dokumenty wykorzystane w materiałach prasowych wskazują na częstotliwość tych kontaktów i na niektóre szczegóły logistyczne dotyczące podróży i udostępniania nieruchomości.</p><p>Publikacja akt nastąpiła po wejściu w życie przepisów wymagających większej przejrzystości w sprawach związanych z Epsteinem. Materiały zostały upublicznione na mocy ustawy nakładającej obowiązek udostępnienia akt dotyczących zmarłego finansisty oraz jego współpracownicy Ghislaine Maxwell. Z treści ujawnionych wiadomości jednak wiele nazwisk zostało zamazanych przez władze, co ogranicza możliwość pełnej identyfikacji wszystkich osób pojawiających się w korespondencji. Dziennikarze i badacze nadal analizują opublikowane akta w poszukiwaniu kolejnych szczegółów.</p></div>
+                    <button class="read-more" data-target="news-body-33">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">epstein</span><span class="tag">dokumenty</span><span class="tag">polska</span><span class="tag">elity</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Awaria systemu energetycznego: blackout w Ukrainie i przerwy w dostawach prądu w Mołdawii</h3>
+                    <div class="news-meta">
+                        <span class="news-time">31 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">W ukraińskim systemie energetycznym doszło do poważnej awarii, która spowodowała odcięcie znacznej części kraju od prądu oraz zakłócenia w dostawach energii w Mołdawii. Według relacji Wiadomości WP i cytowanych tam oficjeli wyłączone zostały linie 400 kV i 750 kV; trwają prace naprawcze i wdrożono harmonogramy awaryjnego wyłączania.</p>
+                    <div class="news-body collapsed" id="news-body-34"><p>W ukraińskim systemie elektroenergetycznym wystąpiła poważna awaria, która według relacji serwisu Wiadomości WP doprowadziła do odcięcia znacznej części kraju od zasilania. Artykuł wskazuje, że awaria wymusiła m.in. „rozładunek bloków elektrowni jądrowej” oraz wdrożenie awaryjnych harmonogramów wyłączania w Kijowie i w obwodach kijowskim, żytomierskim i charkowskim. W informacji przytoczono wypowiedzi ministra energetyki Denysa Szmyhala i cytaty prezydenta Wołodymyra Zełenskiego, zamieszczone na platformie X.</p><p>Według przekazu medialnego wyłączona została linia 400 kV łącząca systemy energetyczne Rumunii i Mołdawii oraz linia 750 kV łącząca zachodnią i centralną część Ukrainy, co spowodowało również przerwy w dostawach prądu po stronie mołdawskiej. Burmistrz Kiszyniowa Ion Ceban został cytowany jako informujący o przerwach w większości stolicy Mołdawii i o pilnych działaniach w celu podłączenia generatorów tam, gdzie było to konieczne.</p><p>Wiadomości WP przytaczają również opinie ekspertów, którzy szacowali, że dostawy prądu mogą zostać przywrócone w ciągu 2–3 godzin, oraz informują, że prace naprawcze są w toku. Premier Julia Swyrydenko i minister energetyki Denys Szmyhal raportowali o sytuacji kryzysowej i wdrożeniu niezbędnych środków zaradczych na poziomie systemu elektroenergetycznego. Artykuł zawiera zdjęcia i dodatkowe relacje z miejsc dotkniętych przerwami.</p><p>Uwaga: do tego momentu w materiałach przekazanych do redakcji znajduje się jeden bezpośredni link do relacji Wiadomości WP, a tekst WP odwołuje się do komunikatów lokalnych ukraińskich mediów i oficjeli. Nie otrzymano w dostarczonym zestawie bezpośrednich linków do oryginalnych komunikatów rządowych, wpisów na platformie X ani raportów operatorów sieci (np. ENTSO-E). W związku z tym redakcja przytacza szczegóły zgodnie z dostępnym materiałem źródłowym, ale zastrzega potrzebę potwierdzenia informacji dodatkowymi, niezależnymi komunikatami operatorów i służb krajowych.</p></div>
+                    <button class="read-more" data-target="news-body-34">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">ukraina</span><span class="tag">awaria</span><span class="tag">energia</span><span class="tag">mołdawia</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Sanepid: rośnie liczba zachorowań na grypę, szczyt może nastąpić w najbliższych tygodniach</h3>
+                    <div class="news-meta">
+                        <span class="news-time">31 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">Dane przedstawione w materiale Onet wskazują na gwałtowny wzrost zachorowań na grypę w styczniu; Główny Inspektor Sanitarny ostrzega, że szczyt fali może nastąpić w ciągu najbliższych dwóch tygodni. Za obecną falę odpowiedzialny jest podtyp H3N2, a szczepienia sezonowe pozostają zalecaną metodą ograniczania ciężkiego przebiegu choroby.</p>
+                    <div class="news-body collapsed" id="news-body-35"><p>Dane epidemiologiczne cytowane w materiale Onet pokazują, że w ciągu stycznia wskaźnik zachorowań na grypę wzrósł z około 70 do blisko 270 przypadków na 100 tysięcy mieszkańców. W artykule przywołano źródła z rządowego portalu eZdrowie oraz wypowiedzi Głównego Inspektora Sanitarnego, który przewiduje, że właściwy szczyt zachorowań może wystąpić w ciągu najbliższych dwóch tygodni.</p><p>Według tekstu dominującym wirusem w bieżącej fali jest podtyp K wirusa grypy A (H3N2). Eksperci cytowani w materiale wskazują, że dostępne w tym sezonie szczepionki mają ograniczoną, ale istotną skuteczność wobec tego podtypu — przyjęcie preparatu zmniejsza ryzyko zachorowania i przede wszystkim chroni przed ciężkim przebiegiem choroby. Onet podaje też dane o liczbie zaszczepionych: około 2,2 miliona osób w sezonie 2025/2026 wobec około 1,8 miliona w poprzednim sezonie.</p><p>Trudna sytuacja epidemiologiczna wpłynęła na zmiany organizacyjne w placówkach medycznych. W artykule wskazano, że niektóre szpitale, np. Wojewódzki Szpital Zespolony w Płocku, wprowadziły czasowe ograniczenia odwiedzin oraz zalecenia dotyczące stosowania masek ochronnych. Sanepid i eksperci wzywają do odpowiedzialnego postępowania: pozostawania w domu przy objawach infekcji oraz unikania przychodzenia do pracy i do placówek medycznych bez potrzeby.</p><p>Artykuł przypomina grupy szczególnie narażone na ciężki przebieg choroby — m.in. dzieci, osoby starsze, kobiety w ciąży oraz osoby pracujące w ochronie zdrowia i oświacie — oraz podkreśla rolę szczepień sezonowych jako głównego narzędzia ochrony. GIS i cytowani specjaliści rekomendują szczepienie oraz podstawowe środki higieniczne, aby ograniczyć dalsze rozprzestrzenianie się wirusa.</p></div>
+                    <button class="read-more" data-target="news-body-35">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">grypa</span><span class="tag">zdrowie</span><span class="tag">sanepid</span><span class="tag">szczepienia</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Awarie energetyczne na południu Ukrainy i skutki w Mołdawii. Przerwy w dostawach prądu i wody</h3>
+                    <div class="news-meta">
+                        <span class="news-time">31 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">Z powodu oblodzenia linii energetycznych w obwodzie odeskim doszło do przerw w dostawach prądu dla części regionów, a w Kijowie czasowo wstrzymano ruch metra. Problemy w ukraińskiej sieci spowodowały też awaryjne wyłączenie systemu energetycznego w Mołdawii i zakłócenia w dostawach prądu w Kiszyniowie.</p>
+                    <div class="news-body collapsed" id="news-body-36"><p>W nocy z 30 na 31 stycznia trudne warunki pogodowe spowodowały zerwanie oblodzonych linii energetycznych w kilku rejonach obwodu odeskiego. Według komunikatów lokalnych władz dostawy prądu w niektórych powiatach zostały wstrzymane, a w samej Odessie energia była dostarczana w pierwszej kolejności do obiektów infrastruktury krytycznej. Sytuacja wymagała pilnych napraw sieci, a służby pracowały nad przywróceniem normalnego zasilania.</p><p>W związku z awariami w systemie energetycznym w Kijowie na krótko wstrzymano ruch metra oraz kolejek podmiejskich; ukraiński operator kolei państwowych poinformował o możliwych opóźnieniach pociągów rzędu 20–30 minut. Operator wodociągów Kyiwwodokanał zgłosił przerwy w dostawach wody w części dzielnic stolicy. W Kijowie temperatura spadła do około minus 11°C, co utrudniało prace naprawcze i zwiększało ryzyko dalszych awarii infrastruktury.</p><p>Skutki awarii w Ukrainie odczuwalne były także w Mołdawii: tamtejsze ministerstwo energetyki poinformowało o awaryjnym wyłączeniu krajowego systemu energetycznego po spadku napięcia powiązanym ze zdarzeniami w ukraińskiej sieci. W Kiszyniowie część dzielnic pozbawiona była prądu, przestała działać sygnalizacja świetlna, a procedury odprawy towarów na granicach uległy wydłużeniu. Wicepremierzy i służby energetyczne obu krajów deklarowały, że pracują nad jak najszybszym przywróceniem zasilania i minimalizacją skutków dla mieszkańców.</p><p>W komunikatach władz podkreślono, że przyczyny awarii związane były zarówno z ekstremalnymi warunkami pogodowymi (oblodzenie linii), jak i z przeciążeniami i wcześniejszymi uszkodzeniami infrastruktury energetycznej. Służby techniczne prowadziły prace naprawcze na miejscu, a pasażerom rekomendowano śledzenie komunikatów operatorów transportu i dostawców mediów w celu uzyskania bieżących informacji o przywracaniu usług.</p></div>
+                    <button class="read-more" data-target="news-body-36">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">ukraina</span><span class="tag">mołdawia</span><span class="tag">energetyka</span><span class="tag">awarie</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Zimowa burza Gianna uderza we wschodnie wybrzeże USA. Meteorolodzy ostrzegają przed &quot;bombą meteorologiczną&quot;</h3>
+                    <div class="news-meta">
+                        <span class="news-time">31 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">Zimowa burza nazwana Gianna gwałtownie się pogłębia i przemieszcza wzdłuż wschodniego wybrzeża USA. Amerykańskie służby pogodowe (NWS) i lokalne władze wydają ostrzeżenia przed intensywnymi opadami śniegu, silnym wiatrem, niskimi temperaturami, przerwami w dostawach prądu oraz ryzykiem powodzi przybrzeżnych.</p>
+                    <div class="news-body collapsed" id="news-body-37"><p>Zgodnie z materiałem źródłowym, zimowa burza nazwana Gianna gwałtownie przybiera na sile i przemieszcza się wzdłuż wschodniego wybrzeża Stanów Zjednoczonych. Artykuł informuje, że meteorolodzy ostrzegają przed zjawiskiem określanym jako „bomb cyclone” (bomba meteorologiczna), które łączy szybkie pogłębianie się niżu barycznego z silnym wiatrem i intensywnymi opadami śniegu. W relacji podkreślono, że układ ma cechy klasycznego nor’eastera, uderzającego w wybrzeże z kierunku północno-wschodniego.</p><p>Według opisu, ostrzeżenia obejmują niebezpieczne warunki na drogach, możliwość długotrwałych przerw w dostawach energii oraz podwyższone ryzyko powodzi przybrzeżnych, ze szczególnym wskazaniem na obszary Wirginii. W treści źródła przytoczono również komunikaty amerykańskiej Krajowej Służby Pogodowej (NWS) dotyczące spodziewanych niskich temperatur — lokalnie kilkanaście stopni poniżej zera Celsjusza — oraz silnych porywów wiatru, które znacząco obniżą temperaturę odczuwalną.</p><p>W artykule odnotowano lokalne działania w Nowym Jorku: po wcześniejszych opadach sięgających blisko 30 cm w regionie wprowadzono alerty związane z kolejną falą arktycznego chłodu i wiatru. Władze miejskie uruchomiły przemysłowe urządzenia do topienia śniegu, odprowadzając roztopioną wodę do kanalizacji; w tekście podano, że roztopiono w ten sposób ponad 10 tysięcy ton śniegu. Źródło informuje też, iż w wyniku ostatniej fali zimowej w Nowym Jorku przypisuje się już śmierć 10 osób.</p><p>Niniejszy tekst opiera się przede wszystkim na jednym udostępnionym źródle informacyjnym. Ze względu na ograniczenia w dostępie do dodatkowych materiałów i konieczność polegania wyłącznie na dostarczonej relacji, rekomendujemy weryfikację szczegółów — w szczególności bieżących komunikatów NWS, ostrzeżeń lokalnych władz i informacji służb ratunkowych — bezpośrednio u wskazanych instytucji. Przytoczone w artykule fakty i cytaty pochodzą z udostępnionego materiału źródłowego; dalsze potwierdzenie można uzyskać w oficjalnych komunikatach NWS i lokalnych administracji.</p></div>
+                    <button class="read-more" data-target="news-body-37">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">pogoda</span><span class="tag">usa</span><span class="tag">śnieżyca</span><span class="tag">alerty</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Ekwador wysłał notę protestacyjną po próbie wejścia agenta ICE do konsulatu w Minneapolis</h3>
+                    <div class="news-meta">
+                        <span class="news-time">28 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">Ekwadorskie MSZ poinformowało, że we wtorek agent amerykańskiej służby imigracyjnej ICE próbował dostać się do konsulatu Ekwadoru w Minneapolis, jednak personel placówki uniemożliwił mu wejście. Resort wysłał notę protestacyjną do ambasady USA w Quito i zażądał, by podobne sytuacje się nie powtarzały.</p>
+                    <div class="news-body collapsed" id="news-body-38"><p>Ekwadorskie Ministerstwo Spraw Zagranicznych przekazało, że we wtorek agent służby imigracyjnej USA (ICE) usiłował wejść do konsulatu Ekwadoru w Minneapolis. Według komunikatu personel placówki zablokował dostęp i zadbał o bezpieczeństwo obywateli Ekwadoru przebywających w budynku, uniemożliwiając w ten sposób funkcjonariuszowi wejście.</p><p>Media cytujące MSZ oraz relacje świadków informują, że do zdarzenia doszło w trakcie szeroko zakrojonej operacji deportacyjnej w Minnesocie. Na polecenie administracji prezydenta w mieście zostało skierowanych około trzech tysięcy funkcjonariuszy ICE i Straży Granicznej — działania te zwiększyły napięcie w rejonie i wiązały się z próbami zatrzymań na ulicach miasta.</p><p>W odpowiedzi na zdarzenie Ekwador wysłał notę protestacyjną do ambasady USA w Quito, domagając się zapewnienia, że podobne incydenty nie będą się powtarzać. W doniesieniach przypomniano również, że placówki dyplomatyczne i konsularne są chronione na mocy konwencji międzynarodowych, co oznacza, że nieuprawnione wejście funkcjonariuszy państwa przyjmującego narusza zasady immunitetu konsularnego.</p><p>Świadkowie cytowani przez media relacjonowali, że widzieli agentów próbujących wejść do budynku po pościgu za osobami, które schroniły się w konsulacie. Lokalni pracownicy sklepów potwierdzili, iż funkcjonariusze nie zdołali wejść do środka. Sprawa jest monitorowana przez odpowiednie służby dyplomatyczne, a Ekwador oczekuje wyjaśnień od strony amerykańskiej.</p></div>
+                    <button class="read-more" data-target="news-body-38">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">dyplomacja</span><span class="tag">usa</span><span class="tag">imigracja</span><span class="tag">ekwador</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Podwójne zabójstwo na Targówku — 49-latek zatrzymany po szturmie policji</h3>
+                    <div class="news-meta">
+                        <span class="news-time">28 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">W jednym z domów na warszawskim Targówku znaleziono ciała kobiety i mężczyzny. 49-letni mężczyzna, który zabarykadował się w budynku, został zatrzymany po szturmie policyjnych kontrterrorystów; sprawa jest prowadzona pod nadzorem prokuratury.</p>
+                    <div class="news-body collapsed" id="news-body-39"><p>W środę rano w domu jednorodzinnym na Targówku, na osiedlu Zacisze, policjanci odnaleźli zwłoki kobiety i mężczyzny. Po przybyciu służb w budynku przebywał mężczyzna, który zabarykadował się przed funkcjonariuszami. Na miejsce wezwano policyjnych negocjatorów oraz Samodzielny Pododdział Kontrterrorystyczny Policji.</p><p>Negocjacje nie przyniosły rezultatu, dlatego tuż przed godziną 12 do akcji wkroczyli kontrterroryści, przeprowadzając szturm i obezwładniając 49-letniego mężczyznę. Policja udostępniła nagranie, na którym widać moment rozmontowywania drzwi oraz dynamiczne wejście funkcjonariuszy. Według przekazów służb nikt z interweniujących funkcjonariuszy nie odniósł obrażeń.</p><p>Z ustaleń dziennikarskich wynika, że ofiary to starsza para, która mieszkała w domu; sąsiedzi wskazywali, że małżonkowie prowadzili wcześniej sklep i byli znani w okolicy. Onet podał nieoficjalnie, że obrażenia ujawnione na ciałach wskazywały na użycie ostrego narzędzia; tożsamość ofiar i okoliczności zdarzenia będą ustalane w toku postępowania.</p><p>Aktualnie trwają czynności dochodzeniowo-śledcze pod nadzorem prokuratury. Policja poinformowała, że charakter zależności między zatrzymanym a ujawnionymi zwłokami oraz przyczyny zgonu zostaną ustalone w toku śledztwa. Prokuratorskie i policyjne działania obejmują oględziny miejsca zdarzenia oraz zabezpieczanie dowodów; dalsze decyzje procesowe zależą od wyników tych czynności.</p></div>
+                    <button class="read-more" data-target="news-body-39">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">targówek</span><span class="tag">policja</span><span class="tag">zabójstwo</span><span class="tag">śledztwo</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Komisja Europejska zatwierdziła polski plan w ramach mechanizmu SAFE — Polska ubiegała się o 43,7 mld euro</h3>
+                    <div class="news-meta">
+                        <span class="news-time">28 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">Komisja Europejska zatwierdziła polski plan wykorzystania środków w ramach mechanizmu SAFE; Polska wystąpiła o 43,7 mld euro z puli 150 mld euro przeznaczonych na pożyczki dla państw UE. Środki mają formę pożyczki z okresem spłaty 30–35 lat i ograniczeniami dotyczącymi komponentów spoza UE.</p>
+                    <div class="news-body collapsed" id="news-body-40"><p>Komisja Europejska zatwierdziła plan Polski dotyczący wykorzystania środków w ramach mechanizmu SAFE; zgodnie z przekazem źródła, Polska wystąpiła o 43,7 mld euro. Mechanizm SAFE to linia o wartości 150 mld euro przeznaczona na pożyczki dla państw członkowskich UE z przeznaczeniem na zakup produktów związanych z obronnością i bezpieczeństwem. Według przedstawionych danych część środków będzie przeznaczona na refinansowanie wcześniej planowanych wydatków, zaś część na nowe projekty.</p><p>Z opisu wynika, że środki przyznawane Polsce mają charakter pożyczki — oprocentowanie jest porównywalne z oprocentowaniem obligacji unijnych (w przybliżeniu około 3 proc. według cytowanego materiału), a okres spłaty oszacowano na 30–35 lat. Po przeliczeniu na złote mowa jest o kwocie zbliżonej do około 200 mld zł, z czego znacząca część ma stanowić refinansowanie wydatków już zaplanowanych, a mniej więcej 50 mld zł ma trafić na projekty nowe, nieujęte wcześniej w budżecie.</p><p>Mechanizm SAFE ma wspierać zakupy priorytetowych produktów obronnych, które zostały podzielone na dwie kategorie kwalifikowalności; w obu przypadkach wskazano limit, że nie więcej niż 35 proc. kosztów może być poniesione na komponenty spoza UE, Islandii, Liechtensteinu, Norwegii oraz Ukrainy. Dla projektów w kategorii 2 obowiązują bardziej rygorystyczne wymagania, w tym możliwość modyfikacji sprzętu bez ograniczeń narzucanych przez podmioty spoza UE. Wskazano też obszary, na które zostaną przeznaczone środki — m.in. „Tarcza Wschód”, zdolności dronowe i antydronowe, tankowanie w powietrzu, wzmacnianie zdolności cybernetycznych, bezpieczeństwo Bałtyku oraz zdolności rakietowe i antyrakietowe. Zaznaczono również, że mechanizm obejmie projekty nie tylko MON, lecz także MSWiA i Ministerstwo Infrastruktury (m.in. mobilność wojskowa).</p><p>Należy zaznaczyć ograniczenie tej informacji: przygotowany tekst bazuje przede wszystkim na udostępnionym materiale źródłowym (artykuł Onet) przekazanym w kandydaturze. W tej chwili nie zostały dołączone bezpośrednie dokumenty Komisji Europejskiej w treści źródła przesłanego do analizy; w sekcji cytowań podano również odnośnik do strony Komisji Europejskiej jako punkt odniesienia, jednak redakcja nie przeprowadziła dodatkowego wyszukiwania dokumentów pierwotnych w celu niezależnej weryfikacji wszystkich szczegółów przed publikacją.</p></div>
+                    <button class="read-more" data-target="news-body-40">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">bezpieczenstwo</span><span class="tag">obrona</span><span class="tag">finanse</span><span class="tag">ue</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>W Ustce funkcjonariusz SOP zaatakował rodzinę nożem; 4-letnia córka nie żyje, prokuratura zapowiada wniosek o areszt</h3>
+                    <div class="news-meta">
+                        <span class="news-time">28 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">W Ustce 44-letni funkcjonariusz Służby Ochrony Państwa zaatakował nożem członków rodziny; jego czteroletnia córka zmarła, kilka osób zostało rannych. Prokuratura Okręgowa w Słupsku doprowadziła mężczyznę na przesłuchanie i zapowiada wniosek o tymczasowe aresztowanie.</p>
+                    <div class="news-body collapsed" id="news-body-41"><p>Do zdarzenia doszło w poniedziałek wieczorem w jednym z mieszkań w Ustce. Według przekazów prokuratury i policji 44-letni funkcjonariusz SOP zaatakował nożem członków rodziny, w wyniku czego jego czteroletnia córka zmarła. Żona, syn oraz teściowie zostali ranni i trafili do szpitali w Lęborku, Sławnie i Słupsku. Policja oraz prokuratura prowadzą śledztwo w sprawie zabójstwa oraz usiłowania zabójstwa kilku osób.</p><p>Mężczyzna został doprowadzony do Prokuratury Okręgowej w Słupsku, gdzie usłyszał zarzuty; prokurator zapowiedział skierowanie wniosku o tymczasowe aresztowanie. Jak poinformowano, podejrzany przyznał się do zarzucanych czynów. Prokurator mówił o „impulsie” i braku jasnej motywacji, a śledczy wskazywali na groźbę wysokiej kary jako jeden z powodów wniosku o areszt.</p><p>Rzecznicy podali, że do ataku doszło około godziny 21:30 w mieszkaniu przy ul. Bałtyckiej; świadkowie i przesłuchani członkowie rodziny opisywali, że wcześniej w mieszkaniu panowała spokojna, rodzinna atmosfera i że rodzina grała w karty. Prokuratura i policja prowadzą zabezpieczenia dowodów oraz przesłuchania świadków, a także ocenę okoliczności zdarzenia. Z relacji wynika, że napastnik zadawał ciosy m.in. w plecy i że ofiar było kilka.</p><p>Ministerstwo poinformowało o zawieszeniu funkcjonariusza w pełnieniu obowiązków służbowych oraz o wszczęciu przez Biuro Nadzoru Wewnętrznego MSWiA czynności sprawdzających przebieg jego służby, w tym okresowych badań lekarskich. Jak przekazano, mężczyzna służył w formacji od 23 lat i nie brał bezpośrednio udziału w czynnościach ochronnych najważniejszych osób w państwie. Postępowanie karne prowadzi Prokuratura Okręgowa w Słupsku, która ustala wszystkie okoliczności tragedii.</p></div>
+                    <button class="read-more" data-target="news-body-41">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">ustka</span><span class="tag">sop</span><span class="tag">przestępstwo</span><span class="tag">prokuratura</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Podwójne zabójstwo na Targówku. Policja zatrzymała mężczyznę po szturmie</h3>
+                    <div class="news-meta">
+                        <span class="news-time">28 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">W jednym z domów na warszawskim Targówku znaleziono ciała kobiety i mężczyzny. W budynku przebywał zabarykadowany 49-letni mężczyzna, który po negocjacjach został zatrzymany przez policję po przeprowadzeniu szturmu.</p>
+                    <div class="news-body collapsed" id="news-body-42"><p>W środę rano służby otrzymały zgłoszenie o ujawnieniu zwłok dwóch osób w domu jednorodzinnym na warszawskim Targówku. Policja potwierdziła, że w budynku znaleziono ciała kobiety i mężczyzny. Na miejscu pracowały patrole, policyjni negocjatorzy oraz funkcjonariusze innych jednostek zabezpieczających teren.</p><p>Według relacji przekazanych przez media w jednym z pomieszczeń budynku miał zabarykadować się mężczyzna, który mógł mieć związek ze zdarzeniem. Służby prowadziły negocjacje, które nie przyniosły efektu; podjęto decyzję o sforsowaniu drzwi. Przed godziną 12 policjanci weszli do budynku, obezwładnili i zatrzymali 49-latka. Przy zatrzymaniu nie odnotowano informacji o rannych funkcjonariuszach.</p><p>W przekazach lokalnych mediów pojawiły się dodatkowe ustalenia: na miejscu znaleziono również martwego psa, a według nieoficjalnych informacji zatrzymany ma być synem zamordowanych. Sąsiedzi opisywali ofiary jako rodzinę uważaną za spokojną; niektórzy informowali o głośnych odgłosach i „hukach” słyszanych rano podczas interwencji służb.</p><p>Na miejscu trwają czynności dochodzeniowo‑śledcze pod nadzorem prokuratury. Policja poinformowała o zabezpieczeniu terenu i prowadzeniu dalszych ustaleń, w tym wyjaśnienia okoliczności związku zatrzymanego z ujawnionymi zwłokami. Informacje te pochodzą z relacji medialnych i komunikatów służb cytowanych w publikacjach krajowych.</p></div>
+                    <button class="read-more" data-target="news-body-42">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">targówek</span><span class="tag">zabójstwo</span><span class="tag">policja</span><span class="tag">warszawa</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Lotnisko w Wilnie czasowo ograniczyło ruch z powodu nadlatujących balonów</h3>
+                    <div class="news-meta">
+                        <span class="news-time">28 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">Litewskie Narodowe Centrum Zarządzania Kryzysowego (NKVC) poinformowało o czasowym ograniczeniu przestrzeni powietrznej nad lotniskiem w Wilnie we wtorkowy wieczór z powodu wykrycia balonów przemytniczych nadlatujących znad Białorusi. Przestrzeń powietrzna została ponownie otwarta o godz. 20:29 czasu UTC, a NKVC podkreśla zmienny charakter sytuacji.</p>
+                    <div class="news-body collapsed" id="news-body-43"><p>Litewskie służby ograniczyły w środowy wieczór przestrzeń powietrzną nad portem lotniczym w Wilnie po wykryciu nadlatujących balonów, które według władz są wykorzystywane do przemytu papierosów z terytorium Białorusi. NKVC (Narodowe Centrum Zarządzania Kryzysowego) podało, że decyzja o ograniczeniu ruchu została podjęta ze względu na obserwowane znaki nawigacyjne charakterystyczne dla balonów oraz w celu zapewnienia bezpieczeństwa lotnictwa cywilnego, pasażerów i społeczeństwa.</p><p>Według komunikatu przestrzeń powietrzna miała być ograniczona wstępnie od godz. 19:05 do 22:05 (czas lokalny podany jako 18:05–21:05 czasu polskiego), jednak później służby poinformowały, że ruch został wznowiony o godz. 20:29. NKVC zaznaczyło, że sytuacja jest zmienna i dynamiczna, a decyzje podejmowane są szybko; szczegółowe informacje mają zostać przekazane w kolejnym komunikacie.</p><p>To kolejny incydent związany z nadlatującymi z Białorusi balonami — agencja BNS i litewskie źródła przypominają, że wcześniejsze zakłócenia miały miejsce m.in. 6 grudnia 2025 r. Władze Litwy wskazują, że balony wykorzystywane są przez przemytników papierosów, a za nasilenie tego procederu obwiniane są białoruskie władze, które zdaniem litewskich organów nie powstrzymują tych działań.</p><p>Wcześniejsze dane litewskiego MSW, cytowane w relacjach medialnych, wskazywały, że w grudniu odnotowano około 600 przypadków naruszeń przestrzeni powietrznej przez balony i 197 przez drony. Zakłócenia spowodowane balonami miały już wpływ na setki lotów i dziesiątki tysięcy pasażerów, a Litwa w związku z nasileniem incydentów wprowadziła stan sytuacji ekstremalnej, który nadal obowiązuje.</p></div>
+                    <button class="read-more" data-target="news-body-43">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">lotnictwo</span><span class="tag">bezpieczeństwo</span><span class="tag">litwa</span><span class="tag">przestępczość</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Atak dronów na pociąg pasażerski pod Charkowem. Zełenski publikuje nagranie</h3>
+                    <div class="news-meta">
+                        <span class="news-time">28 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">Według przekazu prezydenta Ukrainy Wołodymyra Zełenskiego rosyjskie drony zaatakowały pociąg pasażerski w okolicach Charkowa. W ataku zginęły co najmniej cztery osoby, kilka zostało rannych, a część pasażerów jest poszukiwana.</p>
+                    <div class="news-body collapsed" id="news-body-44"><p>Prezydent Ukrainy Wołodymyr Zełenski poinformował, że rosyjskie siły przeprowadziły atak dronami na pociąg pasażerski w rejonie Charkowa. Do wpisu opublikowanego w serwisie X dołączył nagranie pokazujące zniszczenia wewnątrz składu i skalę zdarzenia. W przekazie zaznaczono, że atak nie miał żadnego militarnego uzasadnienia i został określony jako akt terroru.</p><p>Z dostępnych informacji wynika, że pociągiem podróżowało ponad 200 osób, a w jednym z wagonów znajdowało się 18 pasażerów; w wyniku uderzenia zginęły co najmniej cztery osoby, dwie zostały ranne, a cztery dalsze osoby są poszukiwane. Według komunikatu w ataku użyto trzech dronów. Zełenski wezwał społeczność międzynarodową do pociągnięcia Rosji do odpowiedzialności i zwiększenia wysiłków na rzecz ochrony cywilów.</p><p>Relacje o zdarzeniu oparte są na oświadczeniu prezydenta oraz publikacji Onet.pl, która cytuje fragmenty wpisu i udostępnione nagranie. Dane o liczbie ofiar i szczegółach ataku pochodzą z tych przekazów; sprawa powinna być dalej weryfikowana przez niezależne źródła i organy śledcze, które zbadają okoliczności i odpowiedzialność za atak.</p></div>
+                    <button class="read-more" data-target="news-body-44">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">wojna</span><span class="tag">ukraina</span><span class="tag">atak</span><span class="tag">transport</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Reakcje polityczne po zastrzeleniu Alexa Prettiego: Trump o rodzinie i stanowisku Kristi Noem, Biden krytykuje działania federalne</h3>
+                    <div class="news-meta">
+                        <span class="news-time">28 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">Zastrzelenie 37‑letniego Alexa Prettiego podczas akcji federalnych służb imigracyjnych w Minneapolis wywołało falę protestów i politycznych reakcji. Prezydent Donald Trump zadeklarował, że Kristi Noem pozostaje na stanowisku i zapowiedział nadzór nad dochodzeniem, natomiast były prezydent Joe Biden ostro skrytykował działania administracji jako „zdradę naszych wartości”.</p>
+                    <div class="news-body collapsed" id="news-body-45"><p>Zastrzelenie Alexa Prettiego — 37‑letniego obywatela USA — podczas operacji federalnych służb imigracyjnych (ICE) w Minneapolis sprowokowało szerokie protesty i polityczne napięcia. Według relacji mediów i materiałów udostępnionych w reportażach, do zdarzenia doszło podczas interwencji, w trakcie której doszło do szarpaniny między funkcjonariuszami a uczestnikami protestu; administracja federalna twierdzi, że Pretti miał przy sobie broń, podczas gdy fragmenty nagrań i relacje świadków wskazywały, że trzymał telefon komórkowy. Sprawa jest przedmiotem dochodzeń i publicznej debaty na temat zasad prowadzenia akcji przez służby imigracyjne.</p><p>Prezydent Donald Trump w wypowiedzi dla mediów powiedział, że „przygląda się sytuacji”, wyraził współczucie dla rodziny i zadeklarował chęć nadzorowania „honorowego i uczciwego” śledztwa. Jednocześnie ogłosił, że Kristi Noem pozostaje na stanowisku szefowej Departamentu Bezpieczeństwa Krajowego (DHS). Według doniesień administracja wysłała do Minnesoty Toma Homana, znanego z działań wobec kwestii granicznych; nie podano jednak szczegółowego harmonogramu wycofania agentów federalnych z regionu.</p><p>Były prezydent Joe Biden opublikował krytyczny wpis, w którym ocenił działania federalne jako „zdradę naszych podstawowych wartości” i wezwał do pełnego, sprawiedliwego i przejrzystego dochodzenia. Gubernator Minnesoty Tim Walz oraz burmistrz Minneapolis Jacob Frey apelowali o ograniczenie obecności federalnych służb, argumentując, że taktyki używane w operacjach pogłębiają napięcia w społecznościach lokalnych. W mediach pojawiają się również relacje o ostrych wypowiedziach niektórych doradców administracji, które spotkały się z krytyką i przyczyniły się do napięć politycznych wokół sprawy.</p><p>Sprawa nadal rozwija się w debacie publicznej i politycznej: lokalni urzędnicy domagają się działań naprawczych i przywrócenia zaufania w społecznościach dotkniętych operacjami, a w Waszyngtonie prowadzone są rozmowy o dalszym nadzorze i potencjalnych zmianach w taktyce służb federalnych. Dochodzenia trwają, a różne źródła medialne relacjonujące wydarzenia podkreślają znaczenie przejrzystości i rzetelnego wyjaśnienia okoliczności zgonu, które stały się przedmiotem szerokiego zainteresowania krajowego i międzynarodowego.</p></div>
+                    <button class="read-more" data-target="news-body-45">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">usa</span><span class="tag">minnesota</span><span class="tag">imigracja</span><span class="tag">polityka</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Mock article 1</h3>
+                    <div class="news-meta">
+                        <span class="news-time">27 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">Mock article 1</p>
+                    <div class="news-body collapsed" id="news-body-46"><p>Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p></div>
+                    <button class="read-more" data-target="news-body-46">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">news</span><span class="tag">mock</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Mock article 1</h3>
+                    <div class="news-meta">
+                        <span class="news-time">27 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">Mock article 1</p>
+                    <div class="news-body collapsed" id="news-body-47"><p>Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p></div>
+                    <button class="read-more" data-target="news-body-47">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">news</span><span class="tag">mock</span>
+                    </div>
+                </article>
+            
+                <article class="news-item">
+                    <h3>Mock article 1</h3>
+                    <div class="news-meta">
+                        <span class="news-time">27 Stycznia 2026</span>
+                    </div>
+                    <p class="news-summary">Mock article 1</p>
+                    <div class="news-body collapsed" id="news-body-48"><p>Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p><p>Mock article 1 Mock article 1</p></div>
+                    <button class="read-more" data-target="news-body-48">Rozwin</button>
+                    <div class="news-tags">
+                        <span class="tag">news</span><span class="tag">mock</span>
+                    </div>
+                </article>
+            
+            </div>
+            <nav id="news-pagination" class="news-pagination" aria-label="Zakładki artykułów"></nav>
+        </section>
+
+        <aside class="sidebar">
+            <section class="sidebar-module">
+                <h3>Jak weryfikujemy wiadomości?</h3>
+                <ul>
+                    <li>✅ Sprawdzamy źródła i daty publikacji</li>
+                    <li>✅ Odrzucamy clickbait i manipulacyjne nagłówki</li>
+                    <li>✅ Wskazujemy kontekst i poziom pewności</li>
+                </ul>
+                <a class="sidebar-cta" href="#latest">Więcej o metodologii</a>
+            </section>
+
+            <section class="sidebar-module">
+                <h3>Trendy</h3>
+                <ul>
+                    <li>Bezpieczeństwo energetyczne<span class="meta">aktualizacja dziś</span></li>
+                    <li>Wybory i polityka krajowa<span class="meta">najczęściej czytane</span></li>
+                    <li>Technologie AI w Europie<span class="meta">temat tygodnia</span></li>
+                </ul>
+                <a class="sidebar-cta" href="#latest">Zobacz wszystkie</a>
+            </section>
+
+            <section class="sidebar-module">
+                <h3>Newsletter</h3>
+                <p>Codziennie rano: 5 najważniejszych wiadomości bez szumu.</p>
+                <a class="sidebar-cta" href="#latest">Zapisz się</a>
+            </section>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 NBSNews</p>
+
+        </div>
+    </footer>
+
+    <!-- Data embedded statically -->
+<style>
+.news-body.collapsed{display:none}
+.news-source,.reliability-score{display:none!important}
+.news-images{margin:8px 0; display:flex; gap:8px; flex-wrap:wrap}
+.news-images img{max-width:100%; height:auto; border-radius:4px}
+</style>
+<script>(function(){
+  function init(){
+    // Theme init & toggle (mirrors assets/script.js behavior)
+    try {
+      var root = document.documentElement;
+      var btn = document.getElementById('theme-toggle');
+      var saved = localStorage.getItem('theme') || 'auto';
+      var mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      var isPl = ((document.documentElement.getAttribute('lang') || 'en').toLowerCase().indexOf('pl') === 0);
+      var themeLabels = isPl
+        ? { auto: 'Auto', dark: 'Jasny', light: 'Ciemny' }
+        : { auto: 'Auto', dark: 'Light', light: 'Dark' };
+      var mediaListener = null;
+      function applyAuto(){
+        var dark = mql && mql.matches;
+        root.setAttribute('data-theme', dark ? 'dark' : 'light');
+        if (btn) btn.textContent = themeLabels.auto;
+      }
+      function setTheme(mode){
+        if (mode === 'auto') {
+          applyAuto();
+          if (mediaListener && mql) {
+            if (mql.removeEventListener) mql.removeEventListener('change', mediaListener);
+            else if (mql.removeListener) mql.removeListener(mediaListener);
+          }
+          mediaListener = function(){ applyAuto(); };
+          if (mql) {
+            if (mql.addEventListener) mql.addEventListener('change', mediaListener);
+            else if (mql.addListener) mql.addListener(mediaListener);
+          }
+        } else if (mode === 'dark') {
+          root.setAttribute('data-theme','dark'); if (btn) btn.textContent = themeLabels.dark;
+          if (mediaListener && mql) {
+            if (mql.removeEventListener) mql.removeEventListener('change', mediaListener);
+            else if (mql.removeListener) mql.removeListener(mediaListener);
+          }
+        } else {
+          root.setAttribute('data-theme','light'); if (btn) btn.textContent = themeLabels.light;
+          if (mediaListener && mql) {
+            if (mql.removeEventListener) mql.removeEventListener('change', mediaListener);
+            else if (mql.removeListener) mql.removeListener(mediaListener);
+          }
+        }
+        try { localStorage.setItem('theme', mode); } catch(_){}
+      }
+      setTheme(saved);
+      if (btn) btn.addEventListener('click', function(){
+        var current = localStorage.getItem('theme') || 'auto';
+        var order = ['auto','dark','light'];
+        var next = order[(order.indexOf(current)+1)%order.length];
+        setTheme(next);
+      });
+    } catch (_) {}
+
+    (function setupPaginationTabs(){
+      var container = document.getElementById('news-container');
+      var tabsContainer = document.getElementById('news-pagination');
+      if (!container || !tabsContainer) return;
+      var pageSize = 15;
+      var items = Array.prototype.slice.call(container.querySelectorAll('.news-item'));
+      var totalPages = Math.max(1, Math.ceil(items.length / pageSize));
+      var currentPage = 1;
+
+      function renderPage(page){
+        currentPage = page;
+        var start = (page - 1) * pageSize;
+        var end = start + pageSize;
+        items.forEach(function(item, idx){
+          item.style.display = (idx >= start && idx < end) ? '' : 'none';
+        });
+      }
+
+      function renderTabs(){
+        if (totalPages <= 1) {
+          tabsContainer.innerHTML = '';
+          return;
+        }
+        var prevLabel = isPl ? 'Poprzednia strona' : 'Previous page';
+        var nextLabel = isPl ? 'Następna strona' : 'Next page';
+        var pageLabel = isPl ? ('Strona ' + currentPage + ' z ' + totalPages) : ('Page ' + currentPage + ' of ' + totalPages);
+        var navLabel = isPl ? 'Nawigacja stron' : 'Page navigation';
+        var prevDisabled = currentPage <= 1 ? ' disabled' : '';
+        var nextDisabled = currentPage >= totalPages ? ' disabled' : '';
+        var html = ''
+          + '<div class="news-pagination-controls" aria-label="' + navLabel + '">'
+          + '<button class="news-page-btn" type="button" data-action="prev" aria-label="' + prevLabel + '"' + prevDisabled + '>←</button>'
+          + '<span class="news-page-indicator" aria-live="polite">' + pageLabel + '</span>'
+          + '<button class="news-page-btn" type="button" data-action="next" aria-label="' + nextLabel + '"' + nextDisabled + '>→</button>'
+          + '</div>';
+        tabsContainer.innerHTML = html;
+        var prevButton = tabsContainer.querySelector('[data-action="prev"]');
+        var nextButton = tabsContainer.querySelector('[data-action="next"]');
+        if (prevButton) prevButton.addEventListener('click', function(){ renderPage(currentPage - 1); renderTabs(); });
+        if (nextButton) nextButton.addEventListener('click', function(){ renderPage(currentPage + 1); renderTabs(); });
+      }
+
+      renderPage(1);
+      renderTabs();
+    })();
+
+    document.querySelectorAll('.read-more').forEach(function(btn){
+      var isPl = ((document.documentElement.getAttribute('lang') || 'en').toLowerCase().indexOf('pl') === 0);
+      var readMoreLabel = isPl ? 'Rozwin' : 'Read more';
+      var showLessLabel = isPl ? 'Zwiń' : 'Show less';
+      btn.textContent = readMoreLabel;
+      btn.setAttribute('aria-expanded', 'false');
+      btn.addEventListener('click',function(){
+        var id = btn.getAttribute('data-target');
+        var el = document.getElementById(id);
+        if(!el) return;
+        var nowCollapsed = el.classList.toggle('collapsed');
+        btn.textContent = nowCollapsed ? readMoreLabel : showLessLabel;
+        btn.setAttribute('aria-expanded', (!nowCollapsed).toString());
+      });
+    });
+
+    // Theme labels by document language.
+    (function updateThemeLabels(){
+      var isPl = ((document.documentElement.getAttribute('lang') || 'en').toLowerCase().indexOf('pl') === 0);
+      var labels = isPl
+        ? { auto: 'Auto', dark: 'Jasny', light: 'Ciemny' }
+        : { auto: 'Auto', dark: 'Light', light: 'Dark' };
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      var mode = localStorage.getItem('theme') || 'auto';
+      if (mode === 'dark') btn.textContent = labels.dark;
+      else if (mode === 'light') btn.textContent = labels.light;
+      else btn.textContent = labels.auto;
+    })();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();</script>
+</body>
+</html>
