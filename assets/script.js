@@ -4,21 +4,99 @@
  * NBSNews – Frontend App
  *
  * Purpose:
- * - Fetches the latest run's `step5-publication/full-published.json` (via `state/latest.json`) and renders news cards.
+ * - Fetches the latest run's `step5-build-static-site/full-published.json` (via `state/latest.json`) and renders news cards.
  * - Shows last update time and basic error states.
  *
  * Why:
  * - Keeps client logic minimal and deterministic; all heavy lifting happens in backend tools.
  */
 
+const DOM_IDS = Object.freeze({
+    newsContainer: 'news-container',
+    paginationContainer: 'news-pagination',
+    lastUpdate: 'last-update',
+    themeToggle: 'theme-toggle'
+});
+
+const DOM_ATTRS = Object.freeze({
+    lang: 'lang',
+    dataTheme: 'data-theme',
+    ariaExpanded: 'aria-expanded',
+    dataTarget: 'data-target'
+});
+
+const DOM_CLASSES = Object.freeze({
+    readMore: 'read-more',
+    readMoreSelector: '.read-more',
+    collapsed: 'collapsed'
+});
+
+const THEME = Object.freeze({
+    storageKey: 'theme',
+    auto: 'auto',
+    dark: 'dark',
+    light: 'light',
+    order: ['auto', 'dark', 'light'],
+    mediaQuery: '(prefers-color-scheme: dark)'
+});
+
+const FETCH_OPTIONS = Object.freeze({ cache: 'no-store' });
+
+const RUNTIME_PATHS = Object.freeze({
+    latestPointer: 'state/latest.json',
+    step5PublishedForRun: (runId) => `runs/success/${runId}/step5-build-static-site/full-published.json`
+});
+
+const I18N = Object.freeze({
+    pl: {
+        noNews: 'Brak dostępnych wiadomości.',
+        previousPage: 'Poprzednia strona',
+        nextPage: 'Następna strona',
+        pageNav: 'Nawigacja stron',
+        pageOf: (current, total) => `Strona ${current} z ${total}`,
+        readMore: 'Rozwin',
+        showLess: 'Zwiń',
+        missingBody: '<p><em>Brak pełnej treści.</em></p>',
+        noDate: 'Brak daty',
+        errorTitle: 'Błąd podczas ładowania wiadomości',
+        errorBody: 'Odśwież stronę lub sprawdź połączenie z internetem.',
+        removedAddress: '[adres usunięty]',
+        themeLabels: { auto: '🖥️ Auto', dark: '☀️ Jasny', light: '🌙 Ciemny' },
+        locale: 'pl-PL'
+    },
+    en: {
+        noNews: 'No news available.',
+        previousPage: 'Previous page',
+        nextPage: 'Next page',
+        pageNav: 'Page navigation',
+        pageOf: (current, total) => `Page ${current} of ${total}`,
+        readMore: 'Read more',
+        showLess: 'Show less',
+        missingBody: '<p><em>Full content not available.</em></p>',
+        noDate: 'Date unavailable',
+        errorTitle: 'Error while loading news',
+        errorBody: 'Try refreshing the page or check your internet connection.',
+        removedAddress: '[address removed]',
+        themeLabels: { auto: '🖥️ Auto', dark: '☀️ Light', light: '🌙 Dark' },
+        locale: 'en-US'
+    }
+});
+
+const FRONTEND_ERRORS = Object.freeze({
+    loadNews: 'Error while loading news:',
+    fetchData: 'Error while fetching data:',
+    latestRunLoadFailed: 'Failed to load latest run publication',
+    missingPublishedForLatest: 'full-published.json not found for latest run'
+});
+
 class NBSNews {
     /**
      * Initialize app bindings and kick off initial load.
      */
     constructor() {
-        this.newsContainer = document.getElementById('news-container');
-        this.paginationContainer = document.getElementById('news-pagination');
-        this.lastUpdateElement = document.getElementById('last-update');
+        this.newsContainer = document.getElementById(DOM_IDS.newsContainer);
+        this.paginationContainer = document.getElementById(DOM_IDS.paginationContainer);
+        this.lastUpdateElement = document.getElementById(DOM_IDS.lastUpdate);
         this.language = this.getDocumentLanguage();
         this.pageSize = 15;
         this.currentPage = 1;
@@ -34,7 +112,7 @@ class NBSNews {
             await this.loadNews();
             this.updateLastUpdateTime();
         } catch (error) {
-            console.error('Error while loading news:', error);
+            console.error(FRONTEND_ERRORS.loadNews, error);
             this.showError();
         }
     }
@@ -47,20 +125,19 @@ class NBSNews {
             const articles = await this.fetchPublishedArticles();
             this.renderNews(articles);
         } catch (error) {
-            console.error('Error while fetching data:', error);
+            console.error(FRONTEND_ERRORS.fetchData, error);
             this.showError();
         }
     }
 
     async fetchPublishedArticles() {
         try {
-            const latestPointer = await fetch('state/latest.json', { cache: 'no-store' });
+            const latestPointer = await fetch(RUNTIME_PATHS.latestPointer, FETCH_OPTIONS);
             if (latestPointer.ok) {
                 const latestState = await latestPointer.json();
                 const runId = latestState && latestState.success && latestState.success.runId;
                 if (runId) {
-                    const runUrl = `runs/success/${runId}/step5-publication/full-published.json`;
-                    const runResponse = await fetch(runUrl, { cache: 'no-store' });
+                    const runResponse = await fetch(RUNTIME_PATHS.step5PublishedForRun(runId), FETCH_OPTIONS);
                     if (runResponse.ok) {
                         const runPublished = await runResponse.json();
                         return Array.isArray(runPublished.articles) ? runPublished.articles : [];
@@ -68,10 +145,10 @@ class NBSNews {
                 }
             }
         } catch (err) {
-            console.warn('Failed to load latest run publication', err);
+            console.warn(FRONTEND_ERRORS.latestRunLoadFailed, err);
         }
 
-        throw new Error('full-published.json not found for latest run');
+        throw new Error(FRONTEND_ERRORS.missingPublishedForLatest);
     }
 
     /**
@@ -80,9 +157,7 @@ class NBSNews {
      */
     renderNews(articles) {
         if (!articles || articles.length === 0) {
-            this.newsContainer.innerHTML = this.language === 'pl'
-                ? '<p>Brak dostępnych wiadomości.</p>'
-                : '<p>No news available.</p>';
+            this.newsContainer.innerHTML = `<p>${this.t('noNews')}</p>`;
             if (this.paginationContainer) {
                 this.paginationContainer.innerHTML = '';
             }
@@ -121,16 +196,14 @@ class NBSNews {
             return;
         }
 
-        const prevLabel = this.language === 'pl' ? 'Poprzednia strona' : 'Previous page';
-        const nextLabel = this.language === 'pl' ? 'Następna strona' : 'Next page';
-        const pageLabel = this.language === 'pl'
-            ? `Strona ${this.currentPage} z ${totalPages}`
-            : `Page ${this.currentPage} of ${totalPages}`;
+        const prevLabel = this.t('previousPage');
+        const nextLabel = this.t('nextPage');
+        const pageLabel = this.t('pageOf', this.currentPage, totalPages);
         const isFirst = this.currentPage <= 1;
         const isLast = this.currentPage >= totalPages;
 
         this.paginationContainer.innerHTML = `
-            <div class="news-pagination-controls" aria-label="${this.language === 'pl' ? 'Nawigacja stron' : 'Page navigation'}">
+            <div class="news-pagination-controls" aria-label="${this.t('pageNav')}">
                 <button class="news-page-btn" type="button" data-action="prev" aria-label="${prevLabel}" ${isFirst ? 'disabled' : ''}>←</button>
                 <span class="news-page-indicator" aria-live="polite">${pageLabel}</span>
                 <button class="news-page-btn" type="button" data-action="next" aria-label="${nextLabel}" ${isLast ? 'disabled' : ''}>→</button>
@@ -159,11 +232,9 @@ class NBSNews {
         const safeFullText = this.redactSensitiveUrls(article.fullArticleText || '');
         const tags = Array.isArray(article.tags) ? article.tags : [];
         const bodyId = `news-body-${index}`;
-        const readMoreLabel = this.language === 'pl' ? 'Rozwin' : 'Read more';
+        const readMoreLabel = this.t('readMore');
         const bodyHtml = this.formatPlainTextToHtml(safeFullText);
-        const missingBodyHtml = this.language === 'pl'
-            ? '<p><em>Brak pełnej treści.</em></p>'
-            : '<p><em>Full content not available.</em></p>';
+        const missingBodyHtml = this.t('missingBody');
 
         return `
             <article class="news-item">
@@ -172,8 +243,8 @@ class NBSNews {
                     <span class="news-time">${this.escapeHtml(dateLabel)}</span>
                 </div>
                 <p class="news-summary">${this.escapeHtml(safeSummary)}</p>
-                <div class="news-body collapsed" id="${bodyId}">${bodyHtml || missingBodyHtml}</div>
-                <button class="read-more" data-target="${bodyId}" aria-expanded="false">${readMoreLabel}</button>
+                <div class="news-body ${DOM_CLASSES.collapsed}" id="${bodyId}">${bodyHtml || missingBodyHtml}</div>
+                <button class="${DOM_CLASSES.readMore}" data-target="${bodyId}" aria-expanded="false">${readMoreLabel}</button>
                 <div class="news-tags">
                     ${tags.map(tag => `<span class="tag">${this.escapeHtml(tag)}</span>`).join('')}
                 </div>
@@ -182,14 +253,20 @@ class NBSNews {
     }
 
     getDocumentLanguage() {
-        const lang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();
+        const lang = (document.documentElement.getAttribute(DOM_ATTRS.lang) || 'en').toLowerCase();
         return lang.startsWith('pl') ? 'pl' : 'en';
+    }
+
+    t(key, ...args) {
+        const dict = I18N[this.language] || I18N.en;
+        const entry = dict[key];
+        return typeof entry === 'function' ? entry(...args) : entry;
     }
 
     formatArticleDate(dateInput) {
         const date = new Date(dateInput);
         if (Number.isNaN(date.getTime())) {
-            return this.language === 'pl' ? 'Brak daty' : 'Date unavailable';
+            return this.t('noDate');
         }
 
         const monthsPl = [
@@ -240,22 +317,22 @@ class NBSNews {
 
     redactSensitiveUrls(text) {
         if (text === null || text === undefined) return '';
-        return String(text).replace(/https?:\/\/\S+/gi, '[adres usunięty]');
+        return String(text).replace(/https?:\/\/\S+/gi, this.t('removedAddress'));
     }
 
     bindReadMoreButtons() {
-        const readMoreLabel = this.language === 'pl' ? 'Rozwin' : 'Read more';
-        const showLessLabel = this.language === 'pl' ? 'Zwiń' : 'Show less';
+        const readMoreLabel = this.t('readMore');
+        const showLessLabel = this.t('showLess');
 
-        this.newsContainer.querySelectorAll('.read-more').forEach((button) => {
+        this.newsContainer.querySelectorAll(DOM_CLASSES.readMoreSelector).forEach((button) => {
             button.addEventListener('click', () => {
-                const id = button.getAttribute('data-target');
+                const id = button.getAttribute(DOM_ATTRS.dataTarget);
                 if (!id) return;
                 const body = document.getElementById(id);
                 if (!body) return;
-                const collapsed = body.classList.toggle('collapsed');
+                const collapsed = body.classList.toggle(DOM_CLASSES.collapsed);
                 button.textContent = collapsed ? readMoreLabel : showLessLabel;
-                button.setAttribute('aria-expanded', (!collapsed).toString());
+                button.setAttribute(DOM_ATTRS.ariaExpanded, (!collapsed).toString());
             });
         });
     }
@@ -265,7 +342,7 @@ class NBSNews {
      */
     updateLastUpdateTime() {
         const now = new Date();
-        const locale = this.language === 'pl' ? 'pl-PL' : 'en-US';
+        const locale = this.t('locale');
         const timeString = now.toLocaleString(locale);
         if (this.lastUpdateElement) {
             this.lastUpdateElement.textContent = timeString;
@@ -276,10 +353,8 @@ class NBSNews {
      * Render a generic error message in the container.
      */
     showError() {
-        const title = this.language === 'pl' ? 'Błąd podczas ładowania wiadomości' : 'Error while loading news';
-        const body = this.language === 'pl'
-            ? 'Odśwież stronę lub sprawdź połączenie z internetem.'
-            : 'Try refreshing the page or check your internet connection.';
+        const title = this.t('errorTitle');
+        const body = this.t('errorBody');
         this.newsContainer.innerHTML = `
             <div class="error-message">
                 <h3>${title}</h3>
@@ -291,26 +366,24 @@ class NBSNews {
 
 // Initialize app after DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    const uiLang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase().startsWith('pl') ? 'pl' : 'en';
-    const labels = uiLang === 'pl'
-        ? { auto: '🖥️ Auto', dark: '☀️ Jasny', light: '🌙 Ciemny' }
-        : { auto: '🖥️ Auto', dark: '☀️ Light', light: '🌙 Dark' };
+    const uiLang = (document.documentElement.getAttribute(DOM_ATTRS.lang) || 'en').toLowerCase().startsWith('pl') ? 'pl' : 'en';
+    const labels = I18N[uiLang].themeLabels;
 
     // Theme: init and toggle
     (function initTheme(){
         const root = document.documentElement;
-        const btn = document.getElementById('theme-toggle');
-        const saved = localStorage.getItem('theme') || 'auto';
-        const mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+        const btn = document.getElementById(DOM_IDS.themeToggle);
+        const saved = localStorage.getItem(THEME.storageKey) || THEME.auto;
+        const mql = window.matchMedia && window.matchMedia(THEME.mediaQuery);
         let mediaListener = null;
 
         function applyAuto(){
             const dark = mql && mql.matches;
-            root.setAttribute('data-theme', dark ? 'dark' : 'light');
-            if (btn) btn.textContent = labels.auto;
+            root.setAttribute(DOM_ATTRS.dataTheme, dark ? THEME.dark : THEME.light);
+            if (btn) btn.textContent = labels[THEME.auto];
         }
         function setTheme(mode){
-            if (mode === 'auto') {
+            if (mode === THEME.auto) {
                 applyAuto();
                 if (mediaListener && mql) {
                     if (mql.removeEventListener) mql.removeEventListener('change', mediaListener);
@@ -321,29 +394,28 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (mql.addEventListener) mql.addEventListener('change', mediaListener);
                     else if (mql.addListener) mql.addListener(mediaListener);
                 }
-            } else if (mode === 'dark') {
-                root.setAttribute('data-theme','dark');
-                if (btn) btn.textContent = labels.dark;
+            } else if (mode === THEME.dark) {
+                root.setAttribute(DOM_ATTRS.dataTheme, THEME.dark);
+                if (btn) btn.textContent = labels[THEME.dark];
                 if (mediaListener && mql) {
                     if (mql.removeEventListener) mql.removeEventListener('change', mediaListener);
                     else if (mql.removeListener) mql.removeListener(mediaListener);
                 }
             } else {
-                root.setAttribute('data-theme','light');
-                if (btn) btn.textContent = labels.light;
+                root.setAttribute(DOM_ATTRS.dataTheme, THEME.light);
+                if (btn) btn.textContent = labels[THEME.light];
                 if (mediaListener && mql) {
                     if (mql.removeEventListener) mql.removeEventListener('change', mediaListener);
                     else if (mql.removeListener) mql.removeListener(mediaListener);
                 }
             }
-            try { localStorage.setItem('theme', mode); } catch(_){}
+            try { localStorage.setItem(THEME.storageKey, mode); } catch(_){}
         }
         // init
         setTheme(saved);
         if (btn) btn.addEventListener('click', () => {
-            const current = localStorage.getItem('theme') || 'auto';
-            const order = ['auto','dark','light'];
-            const next = order[(order.indexOf(current)+1)%order.length];
+            const current = localStorage.getItem(THEME.storageKey) || THEME.auto;
+            const next = THEME.order[(THEME.order.indexOf(current) + 1) % THEME.order.length];
             setTheme(next);
         });
     })();
