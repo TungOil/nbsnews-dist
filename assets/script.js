@@ -213,10 +213,16 @@ class NBSNews {
         const prevButton = this.paginationContainer.querySelector('[data-action="prev"]');
         const nextButton = this.paginationContainer.querySelector('[data-action="next"]');
         if (prevButton) {
-            prevButton.addEventListener('click', () => this.renderPage(this.currentPage - 1));
+            prevButton.addEventListener('click', () => {
+                this.renderPage(this.currentPage - 1);
+                this.scrollToTopAfterPagination();
+            });
         }
         if (nextButton) {
-            nextButton.addEventListener('click', () => this.renderPage(this.currentPage + 1));
+            nextButton.addEventListener('click', () => {
+                this.renderPage(this.currentPage + 1);
+                this.scrollToTopAfterPagination();
+            });
         }
     }
 
@@ -330,11 +336,38 @@ class NBSNews {
                 if (!id) return;
                 const body = document.getElementById(id);
                 if (!body) return;
+                const willExpand = body.classList.contains(DOM_CLASSES.collapsed);
+                if (willExpand) {
+                    this.collapseOtherExpandedArticles(id, readMoreLabel);
+                }
                 const collapsed = body.classList.toggle(DOM_CLASSES.collapsed);
                 button.textContent = collapsed ? readMoreLabel : showLessLabel;
                 button.setAttribute(DOM_ATTRS.ariaExpanded, (!collapsed).toString());
             });
         });
+    }
+
+    collapseOtherExpandedArticles(activeId, readMoreLabel) {
+        this.newsContainer.querySelectorAll(DOM_CLASSES.readMoreSelector).forEach((otherButton) => {
+            const otherId = otherButton.getAttribute(DOM_ATTRS.dataTarget);
+            if (!otherId || otherId === activeId) return;
+            const otherBody = document.getElementById(otherId);
+            if (!otherBody) return;
+            otherBody.classList.add(DOM_CLASSES.collapsed);
+            otherButton.textContent = readMoreLabel;
+            otherButton.setAttribute(DOM_ATTRS.ariaExpanded, 'false');
+        });
+    }
+
+    scrollToTopAfterPagination() {
+        const latestSection = document.getElementById('latest');
+        if (latestSection && typeof latestSection.scrollIntoView === 'function') {
+            latestSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            return;
+        }
+        if (typeof window !== 'undefined' && typeof window.scrollTo === 'function') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     }
 
     /**
