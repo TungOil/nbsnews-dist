@@ -228,7 +228,7 @@ class NBSNews {
 
     /**
      * Create HTML string for a single article card.
-     * @param {{title:string,summary:string,fullArticleText:string,publishedAt:string,tags:string[]}} article
+     * @param {{title:string,summary:string,fullArticleText:string,publishedAt:string,category:string}} article
      * @param {number} index
      * @returns {string}
      */
@@ -236,11 +236,11 @@ class NBSNews {
         const dateLabel = this.formatArticleDate(article.publishedAt);
         const safeSummary = this.redactSensitiveUrls(article.summary);
         const safeFullText = this.redactSensitiveUrls(article.fullArticleText || '');
-        const tags = Array.isArray(article.tags) ? article.tags : [];
         const bodyId = `news-body-${index}`;
         const readMoreLabel = this.t('readMore');
         const bodyHtml = this.formatPlainTextToHtml(safeFullText);
         const missingBodyHtml = this.t('missingBody');
+        const categoryLabel = this.escapeHtml(article.category);
 
         return `
             <article class="news-item">
@@ -250,9 +250,9 @@ class NBSNews {
                 </div>
                 <p class="news-summary">${this.escapeHtml(safeSummary)}</p>
                 <div class="news-body ${DOM_CLASSES.collapsed}" id="${bodyId}">${bodyHtml || missingBodyHtml}</div>
-                <button class="${DOM_CLASSES.readMore}" data-target="${bodyId}" aria-expanded="false">${readMoreLabel}</button>
-                <div class="news-tags">
-                    ${tags.map(tag => `<span class="tag">${this.escapeHtml(tag)}</span>`).join('')}
+                <div class="news-actions">
+                    <button class="${DOM_CLASSES.readMore}" data-target="${bodyId}" aria-expanded="false">${readMoreLabel}</button>
+                    <span class="news-category-pill">${categoryLabel}</span>
                 </div>
             </article>
         `;

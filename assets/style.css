@@ -262,12 +262,18 @@ main {
     display: none;
 }
 
+.news-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
 .read-more {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     margin-bottom: 0;
-    margin-right: 8px;
     border: 1px solid rgba(148, 197, 240, 0.42);
     border-radius: 8px;
     padding: 4px 11px;
@@ -286,25 +292,20 @@ main {
     background: linear-gradient(180deg, #368dcf 0%, #5ab4ef 100%);
 }
 
-.news-tags {
+.news-category-pill {
     display: inline-flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    vertical-align: middle;
-}
-
-.tag {
-    display: inline-block;
+    align-items: center;
     border: 1px solid rgba(138, 160, 192, 0.28);
-    border-radius: 8px;
+    border-radius: 999px;
     padding: 4px 10px;
     font-size: 0.8rem;
     line-height: 1;
-    color: #cfdbef;
+    font-weight: 600;
+    color: #d8e9ff;
     background: rgba(120, 142, 174, 0.22);
 }
 
-[data-theme="light"] .tag {
+[data-theme="light"] .news-category-pill {
     color: #2b3e5f;
     border-color: rgba(79, 112, 170, 0.38);
     background: rgba(79, 112, 170, 0.14);
