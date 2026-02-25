@@ -15,14 +15,16 @@ const DOM_IDS = Object.freeze({
     newsContainer: 'news-container',
     paginationContainer: 'news-pagination',
     lastUpdate: 'last-update',
-    themeToggle: 'theme-toggle'
+    themeToggle: 'theme-toggle',
+    categoryFilterBar: 'category-filter-bar'
 });
 
 const DOM_ATTRS = Object.freeze({
     lang: 'lang',
     dataTheme: 'data-theme',
     ariaExpanded: 'aria-expanded',
-    dataTarget: 'data-target'
+    dataTarget: 'data-target',
+    dataCategoryFilter: 'data-category-filter'
 });
 
 const DOM_CLASSES = Object.freeze({
@@ -41,6 +43,16 @@ const THEME = Object.freeze({
 });
 
 const FETCH_OPTIONS = Object.freeze({ cache: 'no-store' });
+const CANONICAL_CATEGORIES = Object.freeze([
+    'Polska',
+    'Świat',
+    'Biznes',
+    'Technologia',
+    'Sport',
+    'Kultura',
+    'Nauka',
+    'Opinie'
+]);
 
 const RUNTIME_PATHS = Object.freeze({
     latestPointer: 'state/latest.json',
@@ -54,6 +66,8 @@ const I18N = Object.freeze({
         nextPage: 'Następna strona',
         pageNav: 'Nawigacja stron',
         pageOf: (current, total) => `Strona ${current} z ${total}`,
+        allCategories: 'Wszystkie',
+        noNewsInCategory: 'Brak wiadomości w wybranej kategorii.',
         readMore: 'Rozwin',
         showLess: 'Zwiń',
         missingBody: '<p><em>Brak pełnej treści.</em></p>',
@@ -70,6 +84,8 @@ const I18N = Object.freeze({
         nextPage: 'Next page',
         pageNav: 'Page navigation',
         pageOf: (current, total) => `Page ${current} of ${total}`,
+        allCategories: 'All categories',
+        noNewsInCategory: 'No articles in the selected category.',
         readMore: 'Read more',
         showLess: 'Show less',
         missingBody: '<p><em>Full content not available.</em></p>',
@@ -101,6 +117,8 @@ class NBSNews {
         this.pageSize = 15;
         this.currentPage = 1;
         this.articles = [];
+        this.filteredArticles = [];
+        this.selectedCategory = 'all';
         this.init();
     }
 
@@ -165,27 +183,82 @@ class NBSNews {
         }
 
         this.articles = articles;
+        this.selectedCategory = 'all';
+        this.renderCategoryFilterBar();
+        this.applyCategoryFilter(this.selectedCategory);
+    }
+
+    renderCategoryFilterBar() {
+        const filterBar = document.getElementById(DOM_IDS.categoryFilterBar);
+        if (!filterBar) {
+            return;
+        }
+
+        let filterButtons = Array.from(filterBar.querySelectorAll(`[${DOM_ATTRS.dataCategoryFilter}]`));
+        if (filterButtons.length === 0) {
+            const values = ['all'].concat(CANONICAL_CATEGORIES);
+            filterBar.innerHTML = values
+                .map((value) => {
+                    const label = value === 'all' ? this.t('allCategories') : value;
+                    return `<li><button type="button" ${DOM_ATTRS.dataCategoryFilter}="${this.escapeAttr(value)}" aria-pressed="false">${this.escapeHtml(label)}</button></li>`;
+                })
+                .join('');
+            filterButtons = Array.from(filterBar.querySelectorAll(`[${DOM_ATTRS.dataCategoryFilter}]`));
+        }
+
+        filterButtons.forEach((button) => {
+            button.onclick = () => {
+                const value = button.getAttribute(DOM_ATTRS.dataCategoryFilter) || 'all';
+                this.applyCategoryFilter(value);
+            };
+        });
+    }
+
+    applyCategoryFilter(categoryValue) {
+        const selected = categoryValue === 'all' || CANONICAL_CATEGORIES.includes(categoryValue)
+            ? categoryValue
+            : 'all';
+        this.selectedCategory = selected;
+        this.filteredArticles = selected === 'all'
+            ? this.articles.slice()
+            : this.articles.filter((article) => article && article.category === selected);
+        this.updateCategoryFilterButtons();
         this.currentPage = 1;
         this.renderPage(this.currentPage);
     }
 
+    updateCategoryFilterButtons() {
+        if (typeof document === 'undefined') return;
+        const filterBar = document.getElementById(DOM_IDS.categoryFilterBar);
+        if (!filterBar) return;
+
+        filterBar.querySelectorAll(`[${DOM_ATTRS.dataCategoryFilter}]`).forEach((button) => {
+            const value = button.getAttribute(DOM_ATTRS.dataCategoryFilter) || 'all';
+            const active = value === this.selectedCategory;
+            button.setAttribute('aria-pressed', active ? 'true' : 'false');
+            button.classList.toggle('is-active', active);
+        });
+    }
+
     renderPage(pageNumber) {
-        if (!Array.isArray(this.articles) || this.articles.length === 0) {
-            this.newsContainer.innerHTML = '';
+        const sourceArticles = Array.isArray(this.filteredArticles) ? this.filteredArticles : [];
+        if (sourceArticles.length === 0) {
+            this.newsContainer.innerHTML = `<p class="news-empty-state">${this.escapeHtml(this.t('noNewsInCategory'))}</p>`;
             if (this.paginationContainer) {
                 this.paginationContainer.innerHTML = '';
             }
             return;
         }
 
-        const totalPages = Math.max(1, Math.ceil(this.articles.length / this.pageSize));
+        const totalPages = Math.max(1, Math.ceil(sourceArticles.length / this.pageSize));
         const safePage = Math.min(Math.max(1, Number(pageNumber) || 1), totalPages);
         const start = (safePage - 1) * this.pageSize;
-        const pageArticles = this.articles.slice(start, start + this.pageSize);
+        const pageArticles = sourceArticles.slice(start, start + this.pageSize);
         const newsHTML = pageArticles.map((article, index) => this.createNewsItem(article, start + index)).join('');
         this.newsContainer.innerHTML = newsHTML;
         this.currentPage = safePage;
         this.bindReadMoreButtons();
+        this.bindCategoryPillButtons();
         this.renderPaginationTabs(totalPages);
     }
 
@@ -241,9 +314,10 @@ class NBSNews {
         const bodyHtml = this.formatPlainTextToHtml(safeFullText);
         const missingBodyHtml = this.t('missingBody');
         const categoryLabel = this.escapeHtml(article.category);
+        const categoryValue = this.escapeAttr(article.category);
 
         return `
-            <article class="news-item">
+            <article class="news-item" data-category="${this.escapeAttr(article.category)}">
                 <h3>${this.escapeHtml(article.title)}</h3>
                 <div class="news-meta">
                     <span class="news-time">${this.escapeHtml(dateLabel)}</span>
@@ -252,7 +326,7 @@ class NBSNews {
                 <div class="news-body ${DOM_CLASSES.collapsed}" id="${bodyId}">${bodyHtml || missingBodyHtml}</div>
                 <div class="news-actions">
                     <button class="${DOM_CLASSES.readMore}" data-target="${bodyId}" aria-expanded="false">${readMoreLabel}</button>
-                    <span class="news-category-pill">${categoryLabel}</span>
+                    <button type="button" class="news-category-pill news-category-pill-filter" data-category-filter-value="${categoryValue}">${categoryLabel}</button>
                 </div>
             </article>
         `;
@@ -347,6 +421,16 @@ class NBSNews {
         });
     }
 
+    bindCategoryPillButtons() {
+        this.newsContainer.querySelectorAll('.news-category-pill-filter').forEach((button) => {
+            button.addEventListener('click', () => {
+                const value = button.getAttribute('data-category-filter-value');
+                if (!value) return;
+                this.applyCategoryFilter(value);
+            });
+        });
+    }
+
     collapseOtherExpandedArticles(activeId, readMoreLabel) {
         this.newsContainer.querySelectorAll(DOM_CLASSES.readMoreSelector).forEach((otherButton) => {
             const otherId = otherButton.getAttribute(DOM_ATTRS.dataTarget);
@@ -397,10 +481,18 @@ class NBSNews {
     }
 }
 
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        NBSNews,
+        CANONICAL_CATEGORIES
+    };
+}
+
 // Initialize app after DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    const uiLang = (document.documentElement.getAttribute(DOM_ATTRS.lang) || 'en').toLowerCase().startsWith('pl') ? 'pl' : 'en';
-    const labels = I18N[uiLang].themeLabels;
+if (typeof document !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', () => {
+        const uiLang = (document.documentElement.getAttribute(DOM_ATTRS.lang) || 'en').toLowerCase().startsWith('pl') ? 'pl' : 'en';
+        const labels = I18N[uiLang].themeLabels;
 
     // Theme: init and toggle
     (function initTheme(){
@@ -453,5 +545,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     })();
 
-    new NBSNews();
-});
+        new NBSNews();
+    });
+}

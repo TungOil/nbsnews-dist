@@ -89,23 +89,28 @@ nav ul {
     display: flex;
     align-items: center;
     gap: 22px;
+    flex-wrap: wrap;
 }
 
-nav a {
+.top-category-filters button {
+    border: 1px solid transparent;
+    background: transparent;
     color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 1.03rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    padding: 5px 1px;
-    border-bottom: 2px solid transparent;
-    transition: color .2s ease, border-color .2s ease;
+    padding: 5px 9px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color .2s ease, border-color .2s ease, background-color .2s ease;
 }
 
-nav a:hover,
-nav a:focus,
-nav li:first-child a {
+.top-category-filters button:hover,
+.top-category-filters button:focus,
+.top-category-filters button[aria-pressed="true"],
+.top-category-filters button.is-active {
     color: var(--text-primary);
-    border-bottom-color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-soft);
 }
 
 #theme-toggle {
@@ -134,6 +139,14 @@ main {
 .news-grid {
     display: grid;
     gap: 12px;
+}
+
+.news-empty-state {
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-card);
+    padding: 14px;
+    color: var(--text-secondary);
+    background: var(--bg-panel);
 }
 
 .news-pagination {
@@ -295,6 +308,9 @@ main {
 .news-category-pill {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    appearance: none;
+    cursor: pointer;
     border: 1px solid rgba(138, 160, 192, 0.28);
     border-radius: 999px;
     padding: 4px 10px;
@@ -407,6 +423,11 @@ footer .container {
 
     .news-item h3 {
         font-size: 1.35rem;
+    }
+
+    .top-category-filters button {
+        font-size: 0.87rem;
+        padding: 4px 8px;
     }
 
     .news-summary,
