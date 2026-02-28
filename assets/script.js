@@ -75,7 +75,7 @@ const I18N = Object.freeze({
         errorTitle: 'Błąd podczas ładowania wiadomości',
         errorBody: 'Odśwież stronę lub sprawdź połączenie z internetem.',
         removedAddress: '[adres usunięty]',
-        themeLabels: { auto: '🖥️ Auto', dark: '☀️ Jasny', light: '🌙 Ciemny' },
+        themeLabels: { auto: '◎', dark: '◐', light: '◌' },
         locale: 'pl-PL'
     },
     en: {
@@ -93,7 +93,7 @@ const I18N = Object.freeze({
         errorTitle: 'Error while loading news',
         errorBody: 'Try refreshing the page or check your internet connection.',
         removedAddress: '[address removed]',
-        themeLabels: { auto: '🖥️ Auto', dark: '☀️ Light', light: '🌙 Dark' },
+        themeLabels: { auto: '◎', dark: '◐', light: '◌' },
         locale: 'en-US'
     }
 });
