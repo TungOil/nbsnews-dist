@@ -16,7 +16,8 @@ const DOM_IDS = Object.freeze({
     paginationContainer: 'news-pagination',
     lastUpdate: 'last-update',
     themeToggle: 'theme-toggle',
-    categoryFilterBar: 'category-filter-bar'
+    categoryFilterBar: 'category-filter-bar',
+    categoryFilterSelect: 'category-filter-select'
 });
 
 const DOM_ATTRS = Object.freeze({
@@ -190,28 +191,46 @@ class NBSNews {
 
     renderCategoryFilterBar() {
         const filterBar = document.getElementById(DOM_IDS.categoryFilterBar);
-        if (!filterBar) {
+        const filterSelect = document.getElementById(DOM_IDS.categoryFilterSelect);
+        if (!filterBar && !filterSelect) {
             return;
         }
 
-        let filterButtons = Array.from(filterBar.querySelectorAll(`[${DOM_ATTRS.dataCategoryFilter}]`));
-        if (filterButtons.length === 0) {
-            const values = ['all'].concat(CANONICAL_CATEGORIES);
-            filterBar.innerHTML = values
-                .map((value) => {
-                    const label = value === 'all' ? this.t('allCategories') : value;
-                    return `<li><button type="button" ${DOM_ATTRS.dataCategoryFilter}="${this.escapeAttr(value)}" aria-pressed="false">${this.escapeHtml(label)}</button></li>`;
-                })
-                .join('');
-            filterButtons = Array.from(filterBar.querySelectorAll(`[${DOM_ATTRS.dataCategoryFilter}]`));
+        if (filterBar) {
+            let filterButtons = Array.from(filterBar.querySelectorAll(`[${DOM_ATTRS.dataCategoryFilter}]`));
+            if (filterButtons.length === 0) {
+                const values = ['all'].concat(CANONICAL_CATEGORIES);
+                filterBar.innerHTML = values
+                    .map((value) => {
+                        const label = value === 'all' ? this.t('allCategories') : value;
+                        return `<li><button type="button" ${DOM_ATTRS.dataCategoryFilter}="${this.escapeAttr(value)}" aria-pressed="false">${this.escapeHtml(label)}</button></li>`;
+                    })
+                    .join('');
+                filterButtons = Array.from(filterBar.querySelectorAll(`[${DOM_ATTRS.dataCategoryFilter}]`));
+            }
+
+            filterButtons.forEach((button) => {
+                button.onclick = () => {
+                    const value = button.getAttribute(DOM_ATTRS.dataCategoryFilter) || 'all';
+                    this.applyCategoryFilter(value);
+                };
+            });
         }
 
-        filterButtons.forEach((button) => {
-            button.onclick = () => {
-                const value = button.getAttribute(DOM_ATTRS.dataCategoryFilter) || 'all';
-                this.applyCategoryFilter(value);
+        if (filterSelect) {
+            if (!filterSelect.options || filterSelect.options.length === 0) {
+                const values = ['all'].concat(CANONICAL_CATEGORIES);
+                filterSelect.innerHTML = values
+                    .map((value) => {
+                        const label = value === 'all' ? this.t('allCategories') : value;
+                        return `<option value="${this.escapeAttr(value)}">${this.escapeHtml(label)}</option>`;
+                    })
+                    .join('');
+            }
+            filterSelect.onchange = () => {
+                this.applyCategoryFilter(filterSelect.value || 'all');
             };
-        });
+        }
     }
 
     applyCategoryFilter(categoryValue) {
@@ -230,14 +249,20 @@ class NBSNews {
     updateCategoryFilterButtons() {
         if (typeof document === 'undefined') return;
         const filterBar = document.getElementById(DOM_IDS.categoryFilterBar);
-        if (!filterBar) return;
+        const filterSelect = document.getElementById(DOM_IDS.categoryFilterSelect);
 
-        filterBar.querySelectorAll(`[${DOM_ATTRS.dataCategoryFilter}]`).forEach((button) => {
-            const value = button.getAttribute(DOM_ATTRS.dataCategoryFilter) || 'all';
-            const active = value === this.selectedCategory;
-            button.setAttribute('aria-pressed', active ? 'true' : 'false');
-            button.classList.toggle('is-active', active);
-        });
+        if (filterBar) {
+            filterBar.querySelectorAll(`[${DOM_ATTRS.dataCategoryFilter}]`).forEach((button) => {
+                const value = button.getAttribute(DOM_ATTRS.dataCategoryFilter) || 'all';
+                const active = value === this.selectedCategory;
+                button.setAttribute('aria-pressed', active ? 'true' : 'false');
+                button.classList.toggle('is-active', active);
+            });
+        }
+
+        if (filterSelect) {
+            filterSelect.value = this.selectedCategory;
+        }
     }
 
     renderPage(pageNumber) {
