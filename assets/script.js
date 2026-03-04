@@ -106,6 +106,23 @@ const FRONTEND_ERRORS = Object.freeze({
     missingPublishedForLatest: 'full-published.json not found for latest run'
 });
 
+class NBSError extends Error {
+    constructor(payload = {}) {
+        super(payload.message || 'NBSError');
+        this.name = 'NBSError';
+        this.schemaVersion = payload.schemaVersion || 'initialReason.v1';
+        this.originType = payload.originType || 'library';
+        this.originId = payload.originId || 'deployment/assets/script.js';
+        this.reasonCode = payload.reasonCode || 'critical.runtime_prereq_failed';
+        this.sourceType = payload.sourceType || 'state';
+        this.sourcePath = payload.sourcePath || 'runtime';
+        this.required = Object.prototype.hasOwnProperty.call(payload, 'required') ? payload.required : null;
+        this.actual = Object.prototype.hasOwnProperty.call(payload, 'actual') ? payload.actual : null;
+        this.evidencePath = Object.prototype.hasOwnProperty.call(payload, 'evidencePath') ? payload.evidencePath : null;
+        this.underlyingError = payload.underlyingError || null;
+    }
+}
+
 class NBSNews {
     /**
      * Initialize app bindings and kick off initial load.
@@ -167,7 +184,18 @@ class NBSNews {
             console.warn(FRONTEND_ERRORS.latestRunLoadFailed, err);
         }
 
-        throw new Error(FRONTEND_ERRORS.missingPublishedForLatest);
+        throw new NBSError({
+            originType: 'library',
+            originId: 'deployment/assets/script.js',
+            reasonCode: 'critical.missing_required_input',
+            sourceType: 'file',
+            sourcePath: RUNTIME_PATHS.latestPointer,
+            required: 'full-published.json for latest run',
+            actual: 'missing',
+            evidencePath: RUNTIME_PATHS.latestPointer,
+            message: FRONTEND_ERRORS.missingPublishedForLatest,
+            underlyingError: null
+        });
     }
 
     /**
