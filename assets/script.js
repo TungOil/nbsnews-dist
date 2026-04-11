@@ -51,8 +51,7 @@ const CANONICAL_CATEGORIES = Object.freeze([
     'Technologia',
     'Sport',
     'Kultura',
-    'Nauka',
-    'Opinie'
+    'Nauka'
 ]);
 
 const RUNTIME_PATHS = Object.freeze({
