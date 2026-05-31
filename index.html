@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBSNews - Rzetelne Wiadomości</title>
+
+    <link rel="stylesheet" href="assets/style.css?v=20260531T160413">
+    <script>
+      (function(){
+        try {
+          var saved = localStorage.getItem('theme') || 'auto';
+          var mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+          var dark = (saved === 'dark') || (saved === 'auto' && mql && mql.matches);
+          document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        } catch(_) {}
+      })();
+    </script>
+    <meta name="description" content="Rzetelne i neutralne wiadomości bez szumu informacyjnego">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <p class="header-environment-label">(serwer testowy, wersja alpha)</p>
+            <div class="header-top-row">
+                <h1 style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0;">
+                    <span>NBSNews</span>
+                </h1>
+                <button id="theme-toggle" aria-label="Przełącz motyw" title="Przełącz tryb jasny i ciemny"
+                        style="border:1px solid rgba(255,255,255,0.4); background:transparent; color:#fff; padding:0.4rem 0.7rem; border-radius:6px; cursor:pointer;">
+                    ◐
+                </button>
+            </div>
+            <p class="tagline">Rzetelne wiadomości bez szumu</p>
+            <nav>
+                <ul id="category-filter-bar" class="top-category-filters" aria-label="Filtr kategorii">
+                    <li><button type="button" data-category-filter="all" aria-pressed="true">Wszystkie</button></li>
+                    <li><button type="button" data-category-filter="Polska" aria-pressed="false">Polska</button></li>
+                    <li><button type="button" data-category-filter="Świat" aria-pressed="false">Świat</button></li>
+                    <li><button type="button" data-category-filter="Biznes" aria-pressed="false">Biznes</button></li>
+                    <li><button type="button" data-category-filter="Technologia" aria-pressed="false">Technologia</button></li>
+                    <li><button type="button" data-category-filter="Sport" aria-pressed="false">Sport</button></li>
+                    <li><button type="button" data-category-filter="Kultura" aria-pressed="false">Kultura</button></li>
+                    <li><button type="button" data-category-filter="Nauka" aria-pressed="false">Nauka</button></li>
+                </ul>
+                <div class="mobile-category-filter">
+                    <label for="category-filter-select" class="mobile-category-label">Filtr</label>
+                    <select id="category-filter-select" class="mobile-category-select" aria-label="Filtr kategorii mobilny">
+                        <option value="all">Wszystkie</option>
+                        <option value="Polska">Polska</option>
+                        <option value="Świat">Świat</option>
+                        <option value="Biznes">Biznes</option>
+                        <option value="Technologia">Technologia</option>
+                        <option value="Sport">Sport</option>
+                        <option value="Kultura">Kultura</option>
+                        <option value="Nauka">Nauka</option>
+                    </select>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="methodology-panel" class="methodology-panel methodology-panel-side" aria-label="Metodologia AI">
+            <div class="methodology-header-row">
+                <h2>Dlaczego NBSNews</h2>
+                <a class="methodology-pill" href="jak-tworzymy-nasze-artykuly.html">Nasza metodologia</a>
+            </div>
+            <ul class="methodology-list">
+                <li>
+                    <span class="methodology-icon" aria-hidden="true">
+                        <svg class="methodology-icon-svg" viewBox="0 0 24 24" focusable="false"><path d="M12 2 4 6v6c0 5.2 3.5 9.9 8 11 4.5-1.1 8-5.8 8-11V6l-8-4Zm-1 14-3-3 1.4-1.4 1.6 1.6 3.6-3.6L16 11l-5 5Z"></path></svg>
+                    </span>
+                    <span>Bez clickbaitu i sensacyjnych tytułów.</span>
+                </li>
+                <li>
+                    <span class="methodology-icon" aria-hidden="true">
+                        <svg class="methodology-icon-svg" viewBox="0 0 24 24" focusable="false"><path d="M12 2 4 6v6c0 5.2 3.5 9.9 8 11 4.5-1.1 8-5.8 8-11V6l-8-4Zm-1 14-3-3 1.4-1.4 1.6 1.6 3.6-3.6L16 11l-5 5Z"></path></svg>
+                    </span>
+                    <span>Fakty i kontekst ponad emocjami.</span>
+                </li>
+                <li>
+                    <span class="methodology-icon" aria-hidden="true">
+                        <svg class="methodology-icon-svg" viewBox="0 0 24 24" focusable="false"><path d="M12 2 4 6v6c0 5.2 3.5 9.9 8 11 4.5-1.1 8-5.8 8-11V6l-8-4Zm-1 14-3-3 1.4-1.4 1.6 1.6 3.6-3.6L16 11l-5 5Z"></path></svg>
+                    </span>
+                    <span>Bezstronnie oceniamy fakty, nie strony.</span>
+                </li>
+                <li>
+                    <span class="methodology-icon" aria-hidden="true">
+                        <svg class="methodology-icon-svg" viewBox="0 0 24 24" focusable="false"><path d="M12 2 4 6v6c0 5.2 3.5 9.9 8 11 4.5-1.1 8-5.8 8-11V6l-8-4Zm-1 14-3-3 1.4-1.4 1.6 1.6 3.6-3.6L16 11l-5 5Z"></path></svg>
+                    </span>
+                    <span>Wieloetapowa weryfikacja faktów.</span>
+                </li>
+            </ul>
+        </section>
+        <section id="latest" class="news-section">
+            <div class="news-grid" id="news-container">
+                
+                <article class="news-item" data-category="Nauka">
+                    <h3>
+                        <button type="button" class="news-title-trigger news-expand-trigger" data-target="news-body-0" aria-expanded="false">Nowy lek może wyraźnie wydłużać życie chorych na raka trzustki</button>
+                    </h3>
+                    <div class="news-meta">
+                        <span class="news-time">Dzisiaj</span>
+                    </div>
+                    <div class="news-lead news-lead-wrap">
+                        <button type="button" class="news-lead-trigger news-expand-trigger" data-target="news-body-0" aria-expanded="false">
+                            
+                        <span class="news-image-trigger" aria-hidden="true">
+                            <span class="news-image-frame">
+                                <img src="assets/fallbacks/ai-image-fallback.png" alt="Obraz poglądowy AI: Nowy lek może wyraźnie wydłużać życie chorych na raka trzustki" class="news-image" loading="lazy" decoding="async">
+                                
+                                <span class="news-image-ai-badge" aria-hidden="true">
+                                    <svg class="news-image-ai-icon" width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+                                        <path fill="currentColor" d="
+                                            M25 2
+                                            Q28 12 32 18
+                                            Q38 22 48 25
+                                            Q38 28 32 32
+                                            Q28 38 25 48
+                                            Q22 38 18 32
+                                            Q12 28 2 25
+                                            Q12 22 18 18
+                                            Q22 12 25 2
+                                            Z
+                                        "></path>
+                                    </svg>
+                                    <span class="news-image-ai-tooltip">Obraz poglądowy</span>
+                                </span>
+                            </span>
+                        </span>
+                  
+                            <span class="news-summary news-summary-trigger">Eksperymentalny doustny lek daraksonrasib niemal podwoił czas przeżycia osób z zaawansowanym rakiem trzustki w porównaniu z chemioterapią. Wyniki zaprezentowano podczas dorocznego spotkania Amerykańskiego Towarzystwa Onkologii Klinicznej w Chicago.</span>
+                        </button>
+                    </div>
+                    <div class="news-body collapsed" id="news-body-0"><p>Eksperymentalny lek daraksonrasib przyniósł wyniki, które mogą zmienić podejście do leczenia zaawansowanego raka trzustki. W badaniu przedstawionym podczas dorocznego spotkania Amerykańskiego Towarzystwa Onkologii Klinicznej w Chicago połowa pacjentów przyjmujących ten doustny preparat żyła co najmniej 13 miesięcy, podczas gdy mediana przeżycia w grupie leczonej standardową chemioterapią wyniosła mniej niż siedem miesięcy. Oznacza to niemal podwojenie czasu przeżycia, choć lek nie jest jeszcze terapią zatwierdzoną jako standard leczenia.</p><p>Daraksonrasib działa inaczej niż dotychczas stosowane terapie. Celuje w białko RAS, które w raku trzustki często pozostaje „włączone” i napędza wzrost komórek nowotworowych. Zablokowanie tego sygnału ma znaczenie szczególne, ponieważ właśnie mutacje szlaku RAS należą do najczęstszych i najtrudniejszych do leczenia zmian w tym nowotworze. Wczesne dane wskazują, że nowe podejście może otworzyć drogę do kolejnych terapii ukierunkowanych molekularnie.</p><p>Rak trzustki pozostaje jednym z najbardziej śmiertelnych nowotworów. Choroba często jest wykrywana późno, gdy guz zdążył się już rozsiać poza trzustkę, a leczenie operacyjne nie jest możliwe. W takich przypadkach medycyna w dużej mierze opiera się na chemioterapii, która zwykle daje ograniczoną korzyść. W Stanach Zjednoczonych rocznie rozpoznaje się około 60 tysięcy nowych przypadków, a odsetek osób z zaawansowaną chorobą żyjących pięć lat po diagnozie pozostaje bardzo niski.</p><p>Mimo obiecujących wyników specjaliści podkreślają, że nie oznaczają one jeszcze przełomu rozumianego jako wyleczenie. Potrzebne są dalsze badania, aby potwierdzić skuteczność i bezpieczeństwo leku w większych grupach pacjentów oraz określić jego miejsce w leczeniu skojarzonym. Nawet tak wyraźna poprawa przeżycia może jednak być ważnym krokiem w chorobie, w której przez lata postęp terapeutyczny był bardzo ograniczony.</p></div>
+                    <div class="news-actions">
+                        <button class="read-more" data-target="news-body-0" aria-expanded="false">Rozwin</button>
+                        <button type="button" class="news-category-pill news-category-pill-filter" data-category-filter-value="Nauka">Nauka</button>
+                    </div>
+                </article>
+            
+            </div>
+            <nav id="news-pagination" class="news-pagination" aria-label="Zakładki artykułów"></nav>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 NBSNews</p>
+            <p>Wersja alpha</p>
+
+        </div>
+    </footer>
+
+    <!-- Data embedded statically -->
+<style>
+.news-body.collapsed{display:none}
+.news-source,.reliability-score{display:none!important}
+</style>
+<script>(function(){
+  function init(){
+    // Theme init & toggle (mirrors assets/script.js behavior)
+    try {
+      var root = document.documentElement;
+      var btn = document.getElementById('theme-toggle');
+      var saved = localStorage.getItem('theme') || 'auto';
+      var mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      var themeIcons = { auto: '◎', dark: '◐', light: '◌' };
+      var mediaListener = null;
+      function applyAuto(){
+        var dark = mql && mql.matches;
+        root.setAttribute('data-theme', dark ? 'dark' : 'light');
+        if (btn) btn.textContent = themeIcons.auto;
+      }
+      function setTheme(mode){
+        if (mode === 'auto') {
+          applyAuto();
+          if (mediaListener && mql) {
+            if (mql.removeEventListener) mql.removeEventListener('change', mediaListener);
+            else if (mql.removeListener) mql.removeListener(mediaListener);
+          }
+          mediaListener = function(){ applyAuto(); };
+          if (mql) {
+            if (mql.addEventListener) mql.addEventListener('change', mediaListener);
+            else if (mql.addListener) mql.addListener(mediaListener);
+          }
+        } else if (mode === 'dark') {
+          root.setAttribute('data-theme','dark'); if (btn) btn.textContent = themeIcons.dark;
+          if (mediaListener && mql) {
+            if (mql.removeEventListener) mql.removeEventListener('change', mediaListener);
+            else if (mql.removeListener) mql.removeListener(mediaListener);
+          }
+        } else {
+          root.setAttribute('data-theme','light'); if (btn) btn.textContent = themeIcons.light;
+          if (mediaListener && mql) {
+            if (mql.removeEventListener) mql.removeEventListener('change', mediaListener);
+            else if (mql.removeListener) mql.removeListener(mediaListener);
+          }
+        }
+        try { localStorage.setItem('theme', mode); } catch(_){}
+      }
+      setTheme(saved);
+      if (btn) btn.addEventListener('click', function(){
+        var current = localStorage.getItem('theme') || 'auto';
+        var order = ['auto','dark','light'];
+        var next = order[(order.indexOf(current)+1)%order.length];
+        setTheme(next);
+      });
+    } catch (_) {}
+
+    (function setupPaginationTabs(){
+      var container = document.getElementById('news-container');
+      var tabsContainer = document.getElementById('news-pagination');
+      var categoryFilterBar = document.getElementById('category-filter-bar');
+      var categoryFilterSelect = document.getElementById('category-filter-select');
+      if (!container || !tabsContainer) return;
+      var pageSize = 8;
+      var items = Array.prototype.slice.call(container.querySelectorAll('.news-item'));
+      var canonicalCategories = ['Polska', 'Świat', 'Biznes', 'Technologia', 'Sport', 'Kultura', 'Nauka'];
+      var selectedCategory = 'all';
+      var filteredItems = items.slice();
+      var currentPage = 1;
+      var emptyState = null;
+      var filterButtons = [];
+
+      function ensureFilterButtons(){
+        if (!categoryFilterBar) return;
+        filterButtons = Array.prototype.slice.call(categoryFilterBar.querySelectorAll('[data-category-filter]'));
+        if (filterButtons.length > 0) return;
+
+        var allLabel = isPl ? 'Wszystkie' : 'All categories';
+        var values = ['all'].concat(canonicalCategories);
+        categoryFilterBar.innerHTML = values.map(function(value){
+          var label = value === 'all' ? allLabel : value;
+          return '<li><button type="button" data-category-filter="' + value + '" aria-pressed="false">' + label + '</button></li>';
+        }).join('');
+        filterButtons = Array.prototype.slice.call(categoryFilterBar.querySelectorAll('[data-category-filter]'));
+      }
+
+      function updateFilterButtonsState(){
+        if (!filterButtons.length) return;
+        filterButtons.forEach(function(button){
+          var value = button.getAttribute('data-category-filter') || 'all';
+          var active = value === selectedCategory;
+          button.setAttribute('aria-pressed', active ? 'true' : 'false');
+          button.classList.toggle('is-active', active);
+        });
+        if (categoryFilterSelect) {
+          categoryFilterSelect.value = selectedCategory;
+        }
+      }
+
+      function removeEmptyState(){
+        if (emptyState && emptyState.parentNode) {
+          emptyState.parentNode.removeChild(emptyState);
+        }
+        emptyState = null;
+      }
+
+      function showEmptyState(){
+        if (emptyState) return;
+        emptyState = document.createElement('p');
+        emptyState.className = 'news-empty-state';
+        emptyState.textContent = isPl ? 'Brak wiadomości w wybranej kategorii.' : 'No articles in the selected category.';
+        container.appendChild(emptyState);
+      }
+
+      function refreshFilteredItems(){
+        filteredItems = selectedCategory === 'all'
+          ? items.slice()
+          : items.filter(function(item){
+              return item.getAttribute('data-category') === selectedCategory;
+            });
+      }
+
+      function renderPage(page){
+        refreshFilteredItems();
+        if (!filteredItems.length) {
+          items.forEach(function(item){ item.style.display = 'none'; });
+          showEmptyState();
+          currentPage = 1;
+          return;
+        }
+        removeEmptyState();
+        currentPage = page;
+        var start = (page - 1) * pageSize;
+        var end = start + pageSize;
+        filteredItems.forEach(function(item, idx){
+          item.style.display = (idx >= start && idx < end) ? '' : 'none';
+        });
+        items.forEach(function(item){
+          if (filteredItems.indexOf(item) === -1) item.style.display = 'none';
+        });
+      }
+
+      function applySelectedCategory(nextValue){
+        selectedCategory = (nextValue === 'all' || canonicalCategories.indexOf(nextValue) !== -1) ? nextValue : 'all';
+        updateFilterButtonsState();
+        renderPage(1);
+        renderTabs();
+      }
+
+      function renderTabs(){
+        var totalPages = Math.max(1, Math.ceil(filteredItems.length / pageSize));
+        if (totalPages <= 1) {
+          tabsContainer.innerHTML = '';
+          return;
+        }
+        var prevLabel = isPl ? 'Poprzednia strona' : 'Previous page';
+        var nextLabel = isPl ? 'Następna strona' : 'Next page';
+        var pageLabel = isPl ? ('Strona ' + currentPage + ' z ' + totalPages) : ('Page ' + currentPage + ' of ' + totalPages);
+        var navLabel = isPl ? 'Nawigacja stron' : 'Page navigation';
+        var prevDisabled = currentPage <= 1 ? ' disabled' : '';
+        var nextDisabled = currentPage >= totalPages ? ' disabled' : '';
+        var html = ''
+          + '<div class="news-pagination-controls" aria-label="' + navLabel + '">'
+          + '<button class="news-page-btn" type="button" data-action="prev" aria-label="' + prevLabel + '"' + prevDisabled + '>←</button>'
+          + '<span class="news-page-indicator" aria-live="polite">' + pageLabel + '</span>'
+          + '<button class="news-page-btn" type="button" data-action="next" aria-label="' + nextLabel + '"' + nextDisabled + '>→</button>'
+          + '</div>';
+        tabsContainer.innerHTML = html;
+        var prevButton = tabsContainer.querySelector('[data-action="prev"]');
+        var nextButton = tabsContainer.querySelector('[data-action="next"]');
+        if (prevButton) prevButton.addEventListener('click', function(){ renderPage(currentPage - 1); renderTabs(); });
+        if (nextButton) nextButton.addEventListener('click', function(){ renderPage(currentPage + 1); renderTabs(); });
+      }
+
+      ensureFilterButtons();
+      if (filterButtons.length) {
+        filterButtons.forEach(function(button){
+          button.addEventListener('click', function(){
+            var nextValue = button.getAttribute('data-category-filter') || 'all';
+            applySelectedCategory(nextValue);
+          });
+        });
+      }
+      if (categoryFilterSelect) {
+        categoryFilterSelect.addEventListener('change', function(){
+          var nextValue = categoryFilterSelect.value || 'all';
+          applySelectedCategory(nextValue);
+        });
+      }
+      container.querySelectorAll('.news-category-pill-filter').forEach(function(button){
+        button.addEventListener('click', function(){
+          var nextValue = button.getAttribute('data-category-filter-value') || '';
+          applySelectedCategory(nextValue);
+        });
+      });
+      updateFilterButtonsState();
+      renderPage(1);
+      renderTabs();
+    })();
+
+    var isPl = ((document.documentElement.getAttribute('lang') || 'en').toLowerCase().indexOf('pl') === 0);
+    var readMoreLabel = isPl ? 'Rozwin' : 'Read more';
+    var showLessLabel = isPl ? 'Zwiń' : 'Show less';
+
+    function getTriggersForTarget(targetId){
+      return Array.prototype.slice.call(document.querySelectorAll('[data-target="' + targetId + '"]'));
+    }
+
+    function setExpandedState(targetId, expanded){
+      var body = document.getElementById(targetId);
+      if (!body) return;
+      if (expanded) body.classList.remove('collapsed');
+      else body.classList.add('collapsed');
+      getTriggersForTarget(targetId).forEach(function(trigger){
+        trigger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        if (trigger.classList.contains('read-more')) {
+          trigger.textContent = expanded ? showLessLabel : readMoreLabel;
+        }
+      });
+    }
+
+    function collapseOtherExpandedArticles(activeId){
+      var triggers = document.querySelectorAll('.read-more');
+      Array.prototype.forEach.call(triggers, function(btn){
+        var otherId = btn.getAttribute('data-target');
+        if (!otherId || otherId === activeId) return;
+        setExpandedState(otherId, false);
+      });
+    }
+
+    function bindExpandTriggers(){
+      var triggers = document.querySelectorAll('.read-more, .news-expand-trigger');
+      Array.prototype.forEach.call(triggers, function(trigger){
+        var targetId = trigger.getAttribute('data-target');
+        if (!targetId) return;
+        trigger.setAttribute('aria-expanded', 'false');
+        if (trigger.classList.contains('read-more')) {
+          trigger.textContent = readMoreLabel;
+        }
+        trigger.addEventListener('click', function(){
+          var body = document.getElementById(targetId);
+          if (!body) return;
+          var willExpand = body.classList.contains('collapsed');
+          if (willExpand) collapseOtherExpandedArticles(targetId);
+          setExpandedState(targetId, willExpand);
+        });
+      });
+    }
+
+    bindExpandTriggers();
+
+    // Theme labels by document language.
+    (function updateThemeLabels(){
+      var icons = { auto: '◎', dark: '◐', light: '◌' };
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      var mode = localStorage.getItem('theme') || 'auto';
+      if (mode === 'dark') btn.textContent = icons.dark;
+      else if (mode === 'light') btn.textContent = icons.light;
+      else btn.textContent = icons.auto;
+    })();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();</script>
+</body>
+</html>
